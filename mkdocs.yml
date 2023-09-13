@@ -1,0 +1,64 @@
+site_name: CIEL-IR-Rascol
+theme:
+  language: fr
+  favicon: assets/logo.png
+  icon:
+    logo: octicons/code-review-16
+  features:
+    - navigation.tabs
+    - navigation.instant
+    - navigation.tracking
+    - navigation.top
+    - content.code.annotate
+  name: material
+  palette:
+    - media: "(prefers-color-scheme: light)" 
+      scheme: default
+      primary : indigo
+      accent : indigo
+      toggle:
+        icon: material/lightbulb
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)" 
+      scheme: slate
+      primary : indigo
+      accent : indigo
+      toggle:
+        icon: material/lightbulb-outline
+        name: Switch to light mode
+
+copyright: <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Licence Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">L'ensemble du contenu du site codingtools.fr</span> de
+  <span xmlns:cc="http://creativecommons.org/ns#"
+      property="cc:attributionName">Joris Serrand</span> est mis à disposition selon les termes de la <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">licence Creative Commons Attribution <br />  Partage dans les Mêmes Conditions 4.0 International</a>.  <br />Made with ❤ in <a href="https://en.wikipedia.org/wiki/Albi">Albi</a>
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.keys
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.arithmatex:
+      generic: true
+  - attr_list
+  - md_in_html
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+
+extra_javascript:
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+
+
+nav:
+  - Home : index.md
+  - C++ :
+    - Introduction : cpp/01-IntroCpp/introCpp.md
+    - Utilisation IDE : cpp/02-utilisationIDE/utilisationIDE.md
+    - Variables et Constantes : cpp/03-variablesConstantes/variablesConstantes.md
