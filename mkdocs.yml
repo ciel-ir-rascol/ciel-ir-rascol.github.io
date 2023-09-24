@@ -61,4 +61,6 @@ nav:
   - C++ :
     - Introduction : cpp/01-IntroCpp/introCpp.md
     - Utilisation IDE : cpp/02-utilisationIDE/utilisationIDE.md
-    - Variables et Constantes : cpp/03-variablesConstantes/variablesConstantes.md
+    - Variables et constantes : cpp/03-variablesConstantes/variablesConstantes.md
+    - Tableaux et vecteurs : cpp/04-tableauxVecteurs/tableauxVecteurs.md
+    - Pointeurs : cpp/10-pointeurs/pointeurs.md

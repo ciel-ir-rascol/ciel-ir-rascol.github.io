@@ -7,18 +7,23 @@ style: |
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1rem;
+  },
+  section.lead h1 {
+  text-align: center;
+  font-size: 250%
   }
+
 ---
 <!-- _backgroundImage: url("assets/bgImage.jpg") -->
 # ▶︎ C10 - Les pointeurs
 >## Programmation C++
->### BTS CIEL 1ere année
+>### BTS CIEL Informatique et Réseaux
 >### Lycée Louis Rascol, Albi
 <br><br>
 `Release : v1.0 (03.09.23)`
 📧 [joris.serrand@rascol.net](mailto:joris.serrand@rascol.net)
 🐙 [Github : ciel-ir-rascol/cpp-cours ](https://github.com/ciel-ir-rascol/cpp-cours)
-![bg right:45% w:400](assets/cppLogo.png)
+![bg right:40% w:80%](assets/cppLogo.png)
 
 ---
 <!-- paginate: true --->
@@ -36,7 +41,7 @@ footer: Programmation C++ • Lycée Louis Rascol, Albi
 ---
 
 # Pourquoi utiliser des pointeurs ?
->Mais, je ne peux pas utiliser la variables ou la fonction directement ?? 🤔
+>Mais, je ne peux pas utiliser la variable ou la fonction directement ?? 🤔
 > **Oui, mais pas dans toutes les situations**
 - Dans les fonctions les pointeurs peuvent être utilisés pour accéder à des données définies or de la fonction.
 - Les pointeurs peuvent être utilisés sur les tableaux de manière très efficiente.
@@ -192,6 +197,76 @@ name = "Dinesh"; // On change le contenu de name : name ← "Dinesh"
 
 cout << *stringPtr << endl; // 🖥️ Dinesh
 ```
+
+---
+
+# Relation entre les pointeurs et les tableaux (Arrays)
+
+- La valeur du nom d'un tableau correspond à l'adresse du premier élément dans le tableau
+- La valeur d'un pointeur est une adresse
+- Si un pointeur pointe sur la même case mémoire q'un élément d'un tableau alors on peut utiliser les 2 de manière interchangeable
+```cpp
+int notes[] {10,12,18}
+cout << notes << endl; // 🖥️ 0x61ff10 -> Adresse 1ere case tableau
+cout << *notes << endl; // 🖥️ 10 -> Contenu 1ere case tableau
+
+int *notesPtr {notes}; // Pointeur pointant sur 1ere case tableau
+cout << notesPtr << endl; // 🖥️ 0x61ff10 -> Adresse 1ere case tableau
+cout << *notesPtr << endl; // 🖥️ 10 -> Contenu 1ere case tableau
+```
+
+---
+
+# Relation entre les pointeurs et les tableaux (Arrays)
+## Accéder aux cases d'un tableau, notation `[]`
+
+```cpp
+int notes[] {10,12,18}
+int *notesPtr {notes}; // Pointeur pointant sur 1ere case tableau
+
+cout << notesPtr[0] << endl; // 🖥️ 10 -> Contenu 1ere case tableau
+cout << notesPtr[1] << endl; // 🖥️ 12 -> Contenu 2ème case tableau
+cout << notesPtr[2] << endl; // 🖥️ 18 -> Contenu 3ème case tableau
+```
+
+---
+
+# Relation entre les pointeurs et les tableaux (Arrays)
+## Accéder aux cases d'un tableau, `*pointeur` déréférencement
+```cpp
+cout << notesPtr << endl; // 🖥️ 0x61ff10 -> Adresse 1ere case tableau
+cout << (notesPtr + 1) << endl; // 🖥️ 0x61ff14 -> Adresse 2ème case tableau
+cout << (notesPtr + 2) << endl; // 🖥️ 0x61ff18 -> Adresse 3ème case tableau
+
+cout << *notesPtr << endl; // 🖥️ 10 -> Contenu 1ere case tableau
+cout << *(notesPtr + 1) << endl; // 🖥️ 12 -> Contenu 2ème case tableau
+cout << *(notesPtr + 2) << endl; // 🖥️ 18 -> Contenu 3ème case tableau
+```
+
+---
+
+# Opérations mathématiques
+## Incrémenter et décrémenter
+```cpp
+int tabEntiers[] {10,20,30};
+int *ptrOnTab {tabEntiers};
+
+cout << *ptrOnTab++ << endl;
+//🖥️ 20 -> Contenu de la case mémoire du 2nd élément
+cout << *ptrOnTab++ << endl;
+//🖥️ 30 -> Contenu de la case mémoire du 3ème élément
+cout << *ptrOnTab-- << endl;
+//🖥️ 20 -> Contenu de la case mémoire du 2nd élément
+cout << *ptrOnTab-- << endl;
+//🖥️ 10 -> Contenu de la case mémoire du 1er élément
+```
+
+---
+
+<!-- _class: lead -->
+# Attribution de mémoire dynamique
+# *Heap*
+
 ---
 
 # Attribution de mémoire dynamique
@@ -237,7 +312,7 @@ delete intPtr; // Libération de l'espace réservé dans le tas
 ---
 
 # Attribution de mémoire dynamique
-## Utiliser `new []` pour allouer de l'espace pour un tableau
+## Utiliser `new type[]` pour allouer de l'espace pour un tableau
 ```cpp
 int *tableauPtr = nullptr;
 int taille = 0;
@@ -251,7 +326,7 @@ tableauPtr = new int[taille]; // Réservation du tableau dans le tas
 ---
 
 # Attribution de mémoire dynamique
-## Utiliser `delete []` pour libérer la mémoire réservée pour un tableau
+## Utiliser `delete [] nom` pour libérer la mémoire réservée pour un tableau
 ```cpp
 int *tableauPtr = nullptr;
 int taille = 0;
@@ -268,5 +343,128 @@ delete [] tableauPtr // Libération de l'espace mémoire dans le tas
 
 ---
 
-TODO : Avant de poursuivre revenir sur les vidéos précédente et créer un projet CLion pointeur à utiliser en cours et pour le screencast.
+<!-- _class: lead -->
+# Fonctions et pointeurs
 
+---
+# Fonctions et pointeurs
+## Passage par référence avec des pointeurs en paramètres
+```cpp
+void multiplierPar2(int *intPtr){
+  // On multiplie le contenu de la case mémoire pointée par intPtr, par 2
+  *intPtr = *intPtr * 2; 
+}
+
+int main(){
+  int valeur {10};
+
+  cout << valeur << endl; // 🖥️ 10
+  
+  multiplierPar2(&valeur); // On met en argument l'adresse de valeur
+  
+  cout << valeur << endl; // 🖥️ 20
+}
+```
+
+---
+
+# Fonctions et pointeurs
+## Retourner un pointeur depuis une fonction
+- Les fonctions peuvent aussi retourner des pointeurs :
+```cpp
+type *fonction();
+```
+- Les fonctions peuvent retourner des pointeurs :
+  - Dans de la mémoire dynamique (heap) allouée depuis la fonction
+  - Dans des données passées par paramètre
+- ⚠️ **Ne jamais retourner un pointeur dans une variable locale à la fonction**
+
+---
+
+# Fonctions et pointeurs
+## Exemple de retour par pointeur
+▶︎ **Fonction `lePlusGrand`**
+```cpp
+int *lePlusGrand(int *ptrEntier1, int *ptrEntier2){
+  if(*ptrEntier1 > *ptrEntier2)
+    return ptrEntier1;
+  else
+    return ptrEntier2;
+}
+```
+
+---
+
+# Fonctions et pointeurs
+## Exemple de retour par pointeur
+▶︎ **Fonction principale**
+```cpp
+int main(){
+  int a {100};
+  int b {200};
+  
+  int *rslt{nullptr}; // On déclare un pointeur null sur un entier
+  
+  rslt = lePlusGrand(&a,&b); // La fonction retourne l'adresse du rslt
+  cout << *rslt << endl; // 🖥️ 200
+  
+  return 0;
+}
+```
+
+---
+
+# Fonctions et pointeurs
+## Exemple de retour d'adresse mémoire depuis le heap
+▶︎ **Fonction `creerTableau`**
+```cpp
+int *creerTableau(int nbCases, int valeurInit){
+  int *ptrTableau {nullptr};
+
+  nouveauStockage = new int[nbCases]; // Réservation de nbCases dans le heap
+  for(int i=0; i<nbCases; i++)
+    *(ptrTableau + i) = valeurInit;
+
+  return ptrTableau;
+}
+```
+
+---
+
+# Fonctions et pointeurs
+## Exemple de retour d'adresse mémoire depuis le heap
+**▶︎ Fonction principale**
+
+```cpp
+int main(){
+  int *monTableau {nullptr};
+  // Création d'un tableau dans le heap de 100 cases initialisées à 20
+  monTableau = creerTableau(100,20)
+  
+  // On fait plein de choses avec ce beau tableau 😎
+
+  delete [] monTableau; // ‼️ Indispensable !
+  
+  return 0;
+}
+```
+
+---
+
+# Fonctions et pointeurs
+ ☠️ **À ne pas faire !**
+```cpp
+int *cEstPasBien(){
+  int taille{};
+  ...
+  return &taille; // 🤯 taille est détruit en sortant de la fonction !!!
+}
+
+int *jeNeferaiJamaisCa(){
+  int taille{};
+  int ptrTaille{&taille};
+  ...
+  return ptrTaille; // 🤯 taille est détruit en sortant de la fonction !!!
+}
+```
+**‼️ L'emplacement mémoire des variables locales est détruit en sortant des fonctions.**
