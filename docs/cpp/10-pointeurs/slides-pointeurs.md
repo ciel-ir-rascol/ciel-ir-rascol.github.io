@@ -283,7 +283,7 @@ cout << *ptrOnTab-- << endl;
 # Attribution de mémoire dynamique
 ## Utilisation de `new` pour réserver de l'espace
 ```cpp
-int intPtr = nullptr;
+int *intPtr = nullptr;
 
 intPtr = new int; // Réservation d'un entier dans le tas
 
