@@ -221,3 +221,118 @@ cout << "Contenu de la case [1][2] : " << notesFilms[1][2] << endl;
 # *Vectors*
 
 ---
+
+# C'est quoi un vecteur ? 
+- Un conteneur de la librairie C++ STL
+- Un vecteur n'a pas de taille définitive, on peut le faire grandir ou au contraire le réduire et ce durant l'exécution du programme
+- C'est très efficient
+- Vérification des limites (lève une erreur *out of range*)
+- Plein de fonctions disponibles : Tri, Inversion, Recherche ...
+
+---
+
+# Comment déclarer un vecteur ?
+```cpp
+#include <vector>
+using namespace std;
+
+vector <char> voyelles; // Un vecteur de voyelles vide
+vector <int> notesEval; // Un vecteur d'entiers vide
+
+// En spécifiant le nombre de cases au départ
+vector <char> voyelles(6); // Un vecteur de 6 voyelles initialisés à NUL
+vector <int> notesEval(10); // Un vecteur 10 entiers initialisés à 0
+```
+**‼️ N'oubliez pas d'ajouter la bibliothèque `<vector>` au début de votre fichier !**
+
+---
+
+# Comment initialiser un vecteur ?
+▶︎ **Utilisation de listes d'initialisation**
+
+```cpp
+
+// Un vecteur de voyelles
+vector <char> voyelles{'a','e','i','o','u','y'};
+
+// Un vecteur 5 entiers
+vector <int> notesEval{10,2,15,16,12}; 
+
+// Création d'un vecteur de 10 doubles tous initialisés à 45.6
+vector <double> temperatures(10,45.6);
+```
+
+
+---
+
+# Comment accéder aux éléments d'un vecteur ?
+
+▶︎ **Utilisation de la méthode `at()`**
+```cpp
+vector <int> notesEval{10,2,15,16,12}; // Un vecteur 5 entiers
+
+cout << "Le premier élément est : " << notesEval.at(0) << endl;
+// 🖥️ Le premier élément est : 10
+
+cout << "L'élément 2 est : " << notesEval.at(2) << endl;
+// 🖥️ L'élément 2 est : 15
+```
+
+---
+
+# Connaître la taille d'un vecteur ?
+
+▶︎ **Utilisation de la méthode `size()`**
+```cpp
+vector <int> notesEval{10,2,15,16,12}; // Un vecteur 5 entiers
+
+cout << "Le vecteur comporte " << notesEval.size() << " éléments";
+// 🖥️ Le vecteur comporte 5 éléments
+```
+
+---
+
+# Et le dernier élément ?
+▶︎ **Utilisation de l'indice avec `size()` ou de la méthode `.back()`**
+```cpp
+vector <int> notesEval{10,2,15,16,12}; // Un vecteur 5 entiers
+
+cout << "Le dernier élément est " << noteEvals.at(notesEval.size()-1) << endl;
+// 🖥️ Le dernier élément est 12
+
+cout << "Le dernier élément est " << notesEval.back() << endl;
+// 🖥️ Le dernier élément est 12
+```
+
+---
+
+# Ajouter un élément en fin de vecteur ?
+▶︎ **Utilisation de la méthode `push_back()`**
+```cpp
+vector <int> notesEval{10,2,15,16,12}; // Un vecteur 5 entiers
+
+notesEval.push_back(18);
+cout << notesEval.at(5);
+// 🖥️ 12
+```
+
+---
+
+# Et un vecteur en 2D ?
+
+```cpp
+vector <vector<int>> matrice
+{
+    {10,11,12},
+    {20,21,22},
+    {30,31,32}
+};
+
+cout << "Valeur de l'élément (0,0) " << matrice.at(0).at(0) << endl;
+// 🖥️ 10
+
+cout << "Valeur de l'élément (1,2) " << matrice.at(1).at(2) << endl;
+// 🖥️ 22
+
+```
+ℹ️ La syntaxe est un peu complexe, il faut juste comprendre qu'on déclare et qu'on utilise, **un vecteur dans un vecteur.**
