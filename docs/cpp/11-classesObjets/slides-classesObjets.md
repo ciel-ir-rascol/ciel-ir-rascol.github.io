@@ -396,8 +396,8 @@ void Personnage::subirDegats(int degats) {
 <div>
 
 ```cpp
-#ifndef _PERSONNAGE_H_ // Include Guard
-#define _PERSONNAGE_H_
+#ifndef PERSONNAGE_H // Include Guard
+#define PERSONNAGE_H
 
 class Personnage{
 private:
@@ -410,6 +410,8 @@ public:
     // Déclaration Méthode subirDegats()
     void subirDegats(int degats);
 };
+
+#endif // PERSONNAGE_H
 ```    
 </div>
 <div>
