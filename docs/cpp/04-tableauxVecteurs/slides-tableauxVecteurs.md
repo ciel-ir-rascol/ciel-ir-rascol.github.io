@@ -236,7 +236,7 @@ cout << "Contenu de la case [1][2] : " << notesFilms[1][2] << endl;
 #include <vector>
 using namespace std;
 
-vector <char> voyelles; // Un vecteur de voyelles vide
+vector <char> voyelles; // Un vecteur de caractères vide
 vector <int> notesEval; // Un vecteur d'entiers vide
 
 // En spécifiant le nombre de cases au départ
@@ -313,7 +313,7 @@ vector <int> notesEval{10,2,15,16,12}; // Un vecteur 5 entiers
 
 notesEval.push_back(18);
 cout << notesEval.at(5);
-// 🖥️ 12
+// 🖥️ 18
 ```
 
 ---
