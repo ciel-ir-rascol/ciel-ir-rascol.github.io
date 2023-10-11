@@ -29,7 +29,7 @@ style: |
 ---
 <!-- paginate: true --->
 <!--
-header: ▶︎ C11 - Classes et Objets
+header: ▶︎ C05 - Structures sélectives
 footer: Programmation C++ • Lycée Louis Rascol, Albi
 -->
 
