@@ -155,9 +155,9 @@ font-size: 250%
     <span class="hljs-comment">// Le constructeur par défaut</span>
     <span class="hljs-built_in">Personnage</span>(); 
     <span class="hljs-comment">// Un constructeur pour initialiser l&#x27;attribut nom</span>
-    <span class="hljs-built_in">Personnage</span>(string nom); 
+    <span class="hljs-built_in">Personnage</span>(string nomVal); 
     <span class="hljs-comment">// Un constructeur pour initialiser tous les attributs</span>
-    <span class="hljs-built_in">Personnage</span>(string nom, <span class="hljs-type">int</span> vie, <span class="hljs-type">int</span> attaque, <span class="hljs-type">int</span> defense); 
+    <span class="hljs-built_in">Personnage</span>(string nomVal, <span class="hljs-type">int</span> vieVal, <span class="hljs-type">int</span> attaqueVal, <span class="hljs-type">int</span> defenseVal); 
 };
 </code></pre>
 <footer>Programmation C++ • Lycée Louis Rascol, Albi</footer>
@@ -225,8 +225,8 @@ font-size: 250%
 <span class="hljs-keyword">public</span> :
     <span class="hljs-comment">// Les constructeurs</span>
     <span class="hljs-built_in">Personnage</span>();
-    <span class="hljs-built_in">Personnage</span>(string nom); 
-    <span class="hljs-built_in">Personnage</span>(string nom, <span class="hljs-type">int</span> vie, <span class="hljs-type">int</span> attaque, <span class="hljs-type">int</span> defense); 
+    <span class="hljs-built_in">Personnage</span>(string nomVal); 
+    <span class="hljs-built_in">Personnage</span>(string nomVal, <span class="hljs-type">int</span> vieVal, <span class="hljs-type">int</span> attaqueVal, <span class="hljs-type">int</span> defenseVal); 
     
     <span class="hljs-comment">// Le destructeur</span>
     ~<span class="hljs-built_in">Personnage</span>();
@@ -386,7 +386,7 @@ font-size: 250%
 <span class="hljs-keyword">public</span> :
     <span class="hljs-comment">// Implémentation du constructeur par défaut</span>
     <span class="hljs-built_in">Personnage</span>(){
-        nom = <span class="hljs-string">&quot;None&quot;</span>;
+        nom = <span class="hljs-string">&quot;&quot;</span>;
         vie = <span class="hljs-number">100</span>;
         attaque = <span class="hljs-number">5</span>;
         defense = <span class="hljs-number">5</span>;
@@ -424,7 +424,7 @@ font-size: 250%
 </code></pre>
 <p>Dans cet exemple <code>lancelot</code> aura donc :</p>
 <ul>
-<li>Le nom <code>None</code></li>
+<li>Le nom <code> </code></li>
 <li><code>100</code> points de vie</li>
 <li><code>5</code> points d'attaque</li>
 <li><code>5</code> points de défense</li>
@@ -550,7 +550,7 @@ font-size: 250%
 <div>
 <pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-cpp"><span class="hljs-comment">// Implémentation du constructeur par défaut</span>
 Personnage::<span class="hljs-built_in">Personnage</span>(){
-    nom = <span class="hljs-string">&quot;None&quot;</span>;
+    nom = <span class="hljs-string">&quot;&quot;</span>;
     vie = <span class="hljs-number">100</span>;
     attaque = <span class="hljs-number">5</span>;
     defense = <span class="hljs-number">5</span>;
@@ -662,7 +662,7 @@ font-size: 250%
 <p>▶︎ On implémente les constructeurs de la classe <code>Personnage</code> précédente :</p>
 <pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-cpp"><span class="hljs-comment">// Implémentation du constructeur par défaut</span>
 Personnage::<span class="hljs-built_in">Personnage</span>()
-    : nom {<span class="hljs-string">&quot;None&quot;</span>},vie {<span class="hljs-number">100</span>}, attaque {<span class="hljs-number">5</span>}, defense {<span class="hljs-number">5</span>}{
+    : nom {<span class="hljs-string">&quot;&quot;</span>},vie {<span class="hljs-number">100</span>}, attaque {<span class="hljs-number">5</span>}, defense {<span class="hljs-number">5</span>}{
     }
 
 <span class="hljs-comment">// Implémentation du 2nd constructeur</span>
@@ -763,12 +763,12 @@ Personnage::<span class="hljs-built_in">Personnage</span>(string nomVal, <span c
 
 <span class="hljs-comment">// Implémentation du constructeur par défaut par délégation</span>
 Personnage::<span class="hljs-built_in">Personnage</span>()
-    : Personnage {<span class="hljs-string">&quot;None&quot;</span>,<span class="hljs-number">100</span>,<span class="hljs-number">5</span>,<span class="hljs-number">5</span>}{
+    : Personnage {<span class="hljs-string">&quot;&quot;</span>,<span class="hljs-number">100</span>,<span class="hljs-number">5</span>,<span class="hljs-number">5</span>}{
     }
 
 <span class="hljs-comment">// Implémentation du 2nd constructeur par délégation</span>
 Personnage::<span class="hljs-built_in">Personnage</span>(string nomVal) 
-    : Personnage {<span class="hljs-string">&quot;nomVal&quot;</span>,<span class="hljs-number">100</span>,<span class="hljs-number">5</span>,<span class="hljs-number">5</span>} {
+    : Personnage {nomVal,<span class="hljs-number">100</span>,<span class="hljs-number">5</span>,<span class="hljs-number">5</span>} {
 }
 </code></pre>
 <footer>Programmation C++ • Lycée Louis Rascol, Albi</footer>
@@ -857,7 +857,7 @@ font-size: 250%
     <span class="hljs-type">int</span> defense;
 <span class="hljs-keyword">public</span> :
     <span class="hljs-comment">// Déclaration du constructeur avec initialisations</span>
-    <span class="hljs-built_in">Personnage</span>(string nomVal=<span class="hljs-string">&quot;None&quot;</span>, <span class="hljs-type">int</span> vieVal=<span class="hljs-string">&quot;100&quot;</span>, <span class="hljs-type">int</span> attaqueVal=<span class="hljs-string">&quot;5&quot;</span>, <span class="hljs-type">int</span> defenseVal=<span class="hljs-string">&quot;5&quot;</span>);   
+    <span class="hljs-built_in">Personnage</span>(string nomVal=<span class="hljs-string">&quot;&quot;</span>, <span class="hljs-type">int</span> vieVal=<span class="hljs-string">&quot;100&quot;</span>, <span class="hljs-type">int</span> attaqueVal=<span class="hljs-string">&quot;5&quot;</span>, <span class="hljs-type">int</span> defenseVal=<span class="hljs-string">&quot;5&quot;</span>);   
 };
 
 <span class="hljs-comment">// Implémentation du constructeur</span>
@@ -956,7 +956,7 @@ font-size: 250%
     defense = defense;
 }
 </code></pre>
-<p><img class="emoji" draggable="false" alt="🔴" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/1f534.svg" data-marp-twemoji=""/> <strong>Il y a une ambiguïté</strong> ! Le compilateur ne sait pas s'il doit prendre le paramètre ou l'attribut comme les noms sont les mêmes.</p>
+<p><img class="emoji" draggable="false" alt="🔴" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/1f534.svg" data-marp-twemoji=""/> <strong>Il y a une ambiguïté !</strong> Le compilateur ne sait pas s'il doit prendre le paramètre ou l'attribut, comme les noms sont les mêmes.</p>
 <footer>Programmation C++ • Lycée Louis Rascol, Albi</footer>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="29" data-paginate="true" data-header="▶︎ C12 - Constructeurs et Destructeurs" data-footer="Programmation C++ • Lycée Louis Rascol, Albi" data-style=".columns {

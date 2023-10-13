@@ -62,9 +62,9 @@ public :
     // Le constructeur par défaut
     Personnage(); 
     // Un constructeur pour initialiser l'attribut nom
-    Personnage(string nom); 
+    Personnage(string nomVal); 
     // Un constructeur pour initialiser tous les attributs
-    Personnage(string nom, int vie, int attaque, int defense); 
+    Personnage(string nomVal, int vieVal, int attaqueVal, int defenseVal); 
 };
 ```
 
@@ -94,8 +94,8 @@ private :
 public :
     // Les constructeurs
     Personnage();
-    Personnage(string nom); 
-    Personnage(string nom, int vie, int attaque, int defense); 
+    Personnage(string nomVal); 
+    Personnage(string nomVal, int vieVal, int attaqueVal, int defenseVal); 
     
     // Le destructeur
     ~Personnage();
@@ -161,7 +161,7 @@ private :
 public :
     // Implémentation du constructeur par défaut
     Personnage(){
-        nom = "None";
+        nom = "";
         vie = 100;
         attaque = 5;
         defense = 5;
@@ -181,7 +181,7 @@ int main(){
 }
 ```
 Dans cet exemple `lancelot` aura donc :
-- Le nom `None`
+- Le nom ` `
 - `100` points de vie
 - `5` points d'attaque
 - `5` points de défense
@@ -229,7 +229,7 @@ public :
 ```cpp
 // Implémentation du constructeur par défaut
 Personnage::Personnage(){
-    nom = "None";
+    nom = "";
     vie = 100;
     attaque = 5;
     defense = 5;
@@ -285,7 +285,7 @@ int vieVal, int attaqueVal, int defenseVal){
 ```cpp
 // Implémentation du constructeur par défaut
 Personnage::Personnage()
-    : nom {"None"},vie {100}, attaque {5}, defense {5}{
+    : nom {""},vie {100}, attaque {5}, defense {5}{
     }
 
 // Implémentation du 2nd constructeur
@@ -325,12 +325,12 @@ Personnage::Personnage(string nomVal, int vieVal, int attaqueVal, int defenseVal
 
 // Implémentation du constructeur par défaut par délégation
 Personnage::Personnage()
-    : Personnage {"None",100,5,5}{
+    : Personnage {"",100,5,5}{
     }
 
 // Implémentation du 2nd constructeur par délégation
 Personnage::Personnage(string nomVal) 
-    : Personnage {"nomVal",100,5,5} {
+    : Personnage {nomVal,100,5,5} {
 }
 ```
 
@@ -363,7 +363,7 @@ private :
     int defense;
 public :
     // Déclaration du constructeur avec initialisations
-    Personnage(string nomVal="None", int vieVal="100", int attaqueVal="5", int defenseVal="5");   
+    Personnage(string nomVal="", int vieVal="100", int attaqueVal="5", int defenseVal="5");   
 };
 
 // Implémentation du constructeur
@@ -401,7 +401,7 @@ Personnage::Personnage(string nom, int vie, int attaque, int defense){
     defense = defense;
 }
 ```
-🔴 **Il y a une ambiguïté** ! Le compilateur ne sait pas s'il doit prendre le paramètre ou l'attribut comme les noms sont les mêmes.
+🔴 **Il y a une ambiguïté !** Le compilateur ne sait pas s'il doit prendre le paramètre ou l'attribut, comme les noms sont les mêmes.
 
 ---
 
