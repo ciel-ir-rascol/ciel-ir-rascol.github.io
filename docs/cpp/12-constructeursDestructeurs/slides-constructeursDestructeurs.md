@@ -363,7 +363,7 @@ private :
     int defense;
 public :
     // Déclaration du constructeur avec initialisations
-    Personnage(string nomVal="", int vieVal="100", int attaqueVal="5", int defenseVal="5");   
+    Personnage(string nomVal="", int vieVal=100, int attaqueVal=5, int defenseVal=5);   
 };
 
 // Implémentation du constructeur
