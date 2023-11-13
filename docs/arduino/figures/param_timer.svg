@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="239.2206mm"
+   height="50.658863mm"
+   viewBox="0 0 847.63203 179.49991"
+   id="svg67593"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="param_timer.svg"
+   inkscape:export-filename="/home/joris/Documents/sti2d-docs.fr/pages/1ere/Sequence_Arduino/08-Timer/figures/param_interrupt.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <defs
+     id="defs67595" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.36"
+     inkscape:cx="371.32059"
+     inkscape:cy="176.80504"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="2560"
+     inkscape:window-height="1367"
+     inkscape:window-x="0"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata67598">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-82.10791,-317.14935)">
+    <rect
+       style="opacity:0.47999998;fill:#fff6d5"
+       id="rect68141-9"
+       width="397.63202"
+       height="179.49991"
+       x="532.10791"
+       y="317.14935"
+       ry="17.801643" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="715.55072"
+       y="487.32083"
+       id="text68143-7"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan68145-9"
+         x="715.55072"
+         y="487.32083"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:25px;font-family:'Marker Felt';-inkscape-font-specification:'Marker Felt Medium'">C/C++</tspan></text>
+    <rect
+       style="opacity:0.47999998;fill:#d5f6ff"
+       id="rect68187"
+       width="74.999992"
+       height="123.52941"
+       x="760.94977"
+       y="330.47281"
+       ry="9.8158484" />
+    <rect
+       style="opacity:0.47999998;fill:#d5f6ff"
+       id="rect68187-3"
+       width="74.264702"
+       height="123.52941"
+       x="843.78796"
+       y="330.47281"
+       ry="9.8158484" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="537.26038"
+       y="359.52924"
+       id="text68168"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan68170"
+         x="537.26038"
+         y="359.52924"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:22.5px;font-family:Courier;-inkscape-font-specification:'Courier Bold'">FlexiTimer2::set(temps,macro)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="565.89093"
+       y="384.14926"
+       id="text68219"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         x="565.89093"
+         y="384.14926"
+         style="font-size:12.5px"
+         id="tspan68223" /></text>
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot68227"
+       style="font-style:normal;font-weight:normal;font-size:12.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       transform="translate(49.714447,123.18622)"><flowRegion
+         id="flowRegion68229"><rect
+           id="rect68231"
+           width="53.676472"
+           height="70.588234"
+           x="521.32355"
+           y="247.72774"
+           style="font-size:12.5px" /></flowRegion><flowPara
+         id="flowPara68233" /></flowRoot>    <flowRoot
+       xml:space="preserve"
+       id="flowRoot68235"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       transform="translate(241.71445,123.18622)"><flowRegion
+         id="flowRegion68237"><rect
+           id="rect68239"
+           width="67.647041"
+           height="65.441193"
+           x="522.79413"
+           y="251.40422" /></flowRegion><flowPara
+         id="flowPara68241"
+         style="font-size:12.5px">Paramétrage du temps en ms</flowPara></flowRoot>    <flowRoot
+       xml:space="preserve"
+       id="flowRoot68243"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       transform="translate(249.71445,120.98114)"><flowRegion
+         id="flowRegion68245"><rect
+           id="rect68247"
+           width="63.235287"
+           height="75.735298"
+           x="597.05884"
+           y="253.61009" /></flowRegion><flowPara
+         id="flowPara68249"
+         style="font-size:12.5px">Choix de la macro d'interruption</flowPara></flowRoot>    <rect
+       ry="17.801643"
+       y="317.14935"
+       x="82.10791"
+       height="179.49991"
+       width="413.8085"
+       id="rect71597"
+       style="opacity:0.47999998;fill:#fff6d5" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text71599"
+       y="487.72083"
+       x="231.40175"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:25px;font-family:'Marker Felt';-inkscape-font-specification:'Marker Felt Medium'"
+         y="487.72083"
+         x="231.40175"
+         id="tspan71601"
+         sodipodi:role="line">Algorithmique</tspan></text>
+    <rect
+       ry="9.8158484"
+       y="331.2081"
+       x="327.12625"
+       height="123.52941"
+       width="74.999992"
+       id="rect71603"
+       style="opacity:0.47999998;fill:#d5f6ff" />
+    <rect
+       ry="9.8158484"
+       y="331.2081"
+       x="409.96445"
+       height="123.52941"
+       width="74.264702"
+       id="rect71605"
+       style="opacity:0.47999998;fill:#d5f6ff" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text71607"
+       y="359.52924"
+       x="89.466248"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:22.5px;font-family:Courier;-inkscape-font-specification:'Courier Bold'"
+         y="359.52924"
+         x="89.466248"
+         id="tspan71609"
+         sodipodi:role="line">Paramétrage_timer(temps,macro)</tspan></text>
+    <flowRoot
+       transform="translate(-192.10908,123.92151)"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       id="flowRoot71611"
+       xml:space="preserve"><flowRegion
+         id="flowRegion71613"><rect
+           y="251.40422"
+           x="522.79413"
+           height="65.441193"
+           width="65.441162"
+           id="rect71615" /></flowRegion><flowPara
+         style="font-size:12.5px"
+         id="flowPara71617">Paramétrage du temps en ms</flowPara></flowRoot>    <flowRoot
+       transform="translate(-184.10908,121.71643)"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       id="flowRoot71619"
+       xml:space="preserve"><flowRegion
+         id="flowRegion71621"><rect
+           y="253.61009"
+           x="597.05884"
+           height="75.735298"
+           width="63.235287"
+           id="rect71623" /></flowRegion><flowPara
+         style="font-size:12.5px"
+         id="flowPara71625">Choix de la macro d'interruption</flowPara></flowRoot>  </g>
+</svg>
