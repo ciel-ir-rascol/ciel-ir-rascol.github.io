@@ -1,0 +1,743 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/logo.png">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.15">
+    
+    
+      
+        <title>Les variables et constantes dans un code Arduino - CIEL-IR-Rascol</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.26e3688c.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ecc896b0.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#les-variables-et-constantes-dans-un-code-arduino" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href="../.." title="CIEL-IR-Rascol" class="md-header__button md-logo" aria-label="CIEL-IR-Rascol" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1.75 1h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 13H8.061l-2.574 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25v-8.5C0 1.784.784 1 1.75 1ZM1.5 2.75v8.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25H1.75a.25.25 0 0 0-.25.25Zm5.28 1.72a.75.75 0 0 1 0 1.06L5.31 7l1.47 1.47a.751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018l-2-2a.75.75 0 0 1 0-1.06l2-2a.75.75 0 0 1 1.06 0Zm2.44 0a.75.75 0 0 1 1.06 0l2 2a.75.75 0 0 1 0 1.06l-2 2a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042L10.69 7 9.22 5.53a.75.75 0 0 1 0-1.06Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CIEL-IR-Rascol
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Les variables et constantes dans un code Arduino
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+            
+              <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
+              </label>
+            
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+            
+              <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
+              </label>
+            
+          
+        </form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Recherche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/ciel-ir-rascol/ciel-ir-rascol.github.io" title="Aller au dépôt" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ciel-ir-rascol.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Onglets" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../cpp/01-IntroCpp/introCpp/" class="md-tabs__link">
+        C++
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../" class="md-tabs__link">
+      Arduino
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="CIEL-IR-Rascol" class="md-nav__button md-logo" aria-label="CIEL-IR-Rascol" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1.75 1h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 13H8.061l-2.574 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25v-8.5C0 1.784.784 1 1.75 1ZM1.5 2.75v8.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25H1.75a.25.25 0 0 0-.25.25Zm5.28 1.72a.75.75 0 0 1 0 1.06L5.31 7l1.47 1.47a.751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018l-2-2a.75.75 0 0 1 0-1.06l2-2a.75.75 0 0 1 1.06 0Zm2.44 0a.75.75 0 0 1 1.06 0l2 2a.75.75 0 0 1 0 1.06l-2 2a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042L10.69 7 9.22 5.53a.75.75 0 0 1 0-1.06Z"/></svg>
+
+    </a>
+    CIEL-IR-Rascol
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/ciel-ir-rascol/ciel-ir-rascol.github.io" title="Aller au dépôt" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ciel-ir-rascol.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          C++
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          C++
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/01-IntroCpp/introCpp/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/02-utilisationIDE/utilisationIDE/" class="md-nav__link">
+        Utilisation IDE
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/03-variablesConstantes/variablesConstantes/" class="md-nav__link">
+        Variables et Constantes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/04-tableauxVecteurs/tableauxVecteurs/" class="md-nav__link">
+        Tableaux et vecteurs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/05-structuresSelectives/structuresSelectives/" class="md-nav__link">
+        Structures sélectives
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/06-structuresIteratives/structuresIteratives/" class="md-nav__link">
+        Structures itératives
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/10-pointeurs/pointeurs/" class="md-nav__link">
+        Pointeurs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/11-classesObjets/classesObjets/" class="md-nav__link">
+        Classes et Objets
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/12-constructeursDestructeurs/constructeursDestructeurs/" class="md-nav__link">
+        Constructeurs et Destructeurs
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        Arduino
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-les-types-de-variables" class="md-nav__link">
+    1. Les types de variables
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Les types de variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-signe-ou-non-signe" class="md-nav__link">
+    1.1 Signé ou non Signé ??
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-le-booleen-boolean" class="md-nav__link">
+    1.2 Le booléen : boolean
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-loctet-byte" class="md-nav__link">
+    1.3 L'octet : byte
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-lentier-int" class="md-nav__link">
+    1.4 L'entier : int
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15-le-flottant-float" class="md-nav__link">
+    1.5 Le flottant : float
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16-le-caractere-char" class="md-nav__link">
+    1.6 Le caractère : char
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-la-declaration-et-linitialisation-de-variables" class="md-nav__link">
+    2. La déclaration et l'initialisation de variables
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-la-declaration-de-constantes" class="md-nav__link">
+    3. La déclaration de constantes
+  </a>
+  
+    <nav class="md-nav" aria-label="3. La déclaration de constantes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-utilisation-de-const" class="md-nav__link">
+    3.1 Utilisation de const
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-utilisation-de-define" class="md-nav__link">
+    3.2 Utilisation de #define
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="les-variables-et-constantes-dans-un-code-arduino">Les variables et constantes dans un code Arduino</h1>
+<p>La variable est en programmation un système de stockage de données. Par analogie une variable peut être comparée à une boîte, le type de variable correspondant à la taille de la boîte, plus le type est codé sur un nombre de bits important, plus la boîte sera grande. L'intérieur d'une variable contient un nombre (ou un caractère si le type le permet) modifiable à souhait tout au long du programme.</p>
+<p><img alt="" src="../figures/Boites_gigognes.svg" /></p>
+<h2 id="1-les-types-de-variables">1. Les types de variables</h2>
+<h3 id="11-signe-ou-non-signe">1.1 Signé ou non Signé ??</h3>
+<p>Vous avez peut-être pu remarquer au cours de vos lectures la référence à un type de variable signé ou non signé, qu'est ce que ça peut bien vouloir dire ?
+La "signature" est un moyen en programmation pour coder les nombres relatifs, un type de variable non signé comme par exemple un <code>unsigned int</code> ne pourra pas contenir un nombre relatif inférieur à 0 comme -9. À contrario, un type signé comme <code>int</code> pourra contenir un nombre relatif supérieur ou inférieur à 0.</p>
+<h3 id="12-le-booleen-boolean">1.2 Le booléen : <code>boolean</code></h3>
+<p><img alt="" src="../figures/Boite_bool.svg" /></p>
+<p>Le booléen noté <code>boolean</code> sur Arduino, est le plus petit type de variable que vous serez emmené à rencontrer, il est codé sur seulement 2 bits. Son contenu ne peut être que <strong>0 ou 1</strong>, soit <code>True</code>ou <code>False</code>sur Arduino.
+Ce type est souvent utilisé pour stocker l'état d'un capteur numérique, par exemple un bouton poussoir : <code>True</code>si le bouton est appuyé, <code>False</code>si il est relâché. C'est un type non signé.</p>
+<h3 id="13-loctet-byte">1.3 L'octet : <code>byte</code></h3>
+<p><img alt="" src="../figures/Boite_octet.svg" /></p>
+<p>L'octet noté <code>byte</code> sous Arduino, est un type de variable codé sur 8 bits. Son contenu est un nombre pouvant aller de <strong>0 à 255</strong>. C'est un type non signé.</p>
+<h3 id="14-lentier-int">1.4 L'entier : <code>int</code></h3>
+<p><img alt="" src="../figures/Boite_entier.svg" /></p>
+<p>L'entier noté <code>int</code> sous Arduino, est un type de variable <strong>signé</strong> codé sur 16 bits. Son contenu est un nombre pouvant aller de <span class="arithmatex">\({-2}^{15}\)</span> à <span class="arithmatex">\({2}^{15}-1\)</span> soit de -32768 à 32767. Le calcul des extrema se fait sur 15 bits et non pas sur 16 car le bit de poids fort est réservé pour le bit de signe, si celui-ci est à 1 le complément à deux du nombre qui suit est interprété comme un négatif, inversement pour un positif.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Il existe le type <code>unsigned int</code> pour un entier non signé. Les valeurs limites sont donc de 0 à <span class="arithmatex">\(2^{16}-1\)</span>, soit de 0 à  65 535.</p>
+</div>
+<h3 id="15-le-flottant-float">1.5 Le flottant : <code>float</code></h3>
+<p><img alt="" src="../figures/Boite_flottant.svg" /></p>
+<p>Le flottant noté <code>float</code> sous Arduino, est un type de variable <strong>signé</strong> codé sur 4 octets soit 32 bits. Son contenu est un nombre pouvant aller de 3.4028235E+38 à -3.4028235E+38.</p>
+<p><strong>Codage d'un nombre en virgule flottante :</strong>
+La virgule flottante est une technique pour stocker dans une variable un nombre réel. Pour cela il suffit de décomposer le nombre de la manière suivante :</p>
+<p><img alt="" src="../figures/Flottant.svg" /></p>
+<ul>
+<li>Le bit de poids fort est le bit de signe, il est à 1 si le nombre est négatif, à 0 si il est positif.</li>
+<li>La mantisse contient les chiffres significatifs du nombre elle est codée sur 23 bits.</li>
+<li>L'exposant représente la place de la virgule dans le nombre, il est codé sur 8 bits.</li>
+</ul>
+<h3 id="16-le-caractere-char">1.6 Le caractère : <code>char</code></h3>
+<p><img alt="" src="../figures/Boite_char.svg" /></p>
+<p>Le caractère noté <code>char</code> sous Arduino, est un type de variable codé sur 8 bits. Son contenu est un <strong>caractère</strong>, codé avec son code décimal ASCII correspondant. Pour enregistrer un caractère il suffit de le mettre entre côtes : <code>'a'</code> , si on souhaite enregistrer le code <strong>décimal</strong> ASCII correspondant au caractère souhaité il suffit de le noter tel quel. Pour <code>'a'</code> le code ASCII correspondant est 97.</p>
+<p><strong>Le codage ASCII</strong></p>
+<p>L'ASCII pour <em>American Standard Code for Information Interchange</em> (Code américain normalisé pour l'échange d'information) est un système de codage des caractères inventé dans les 60 par l'ISO (<em>International Organization for Standardization</em>). C'est un système de codage devenu un standard pour transmettre l'information de manière numérique. Pour de plus amples renseignements sur la création du code ASCII n'hésitez pas à consulter la page <a href="https://fr.wikipedia.org/wiki/American_Standard_Code_for_Information_Interchange">Wikipédia</a> dédiée.</p>
+<p><img alt="" src="../figures/ASCII-Table.svg" /></p>
+<h2 id="2-la-declaration-et-linitialisation-de-variables">2. La déclaration et l'initialisation de variables</h2>
+<p>Pour utiliser une variable dans son programme Arduino il faut au préalable la créer, en programmation on parlera de <strong>déclarer une variable</strong>. Le langage C/C++ autorise la déclaration de variables n'importe où dans le code, cependant il est préférable pour les novices de <strong>faire toutes les déclarations et initialisations au début</strong>, juste après les ajouts de bibliothèques (<code>#define ...</code>). Quand on déclare une variable on a pour obligation de lui donner un nom, et de préciser son type, il est préférable également de l'initialiser, c'est à dire lui donner une valeur de départ sans quoi un nombre indépendant de notre volonté sera enregistré.</p>
+<p>Pour déclarer et initialiser une variable il suffit d'utiliser l'instruction suivante :</p>
+<p><img alt="" src="../figures/Declaration_variable.svg" /></p>
+<p>Dans cet exemple nous venons de déclarer une variable de type entier appelée <em>ma_variable</em> et initialisée à 124.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Les noms de variables ne doivent <strong>pas contenir d'espaces, d'accents, de caractères spéciaux autre que <code>_</code></strong>. De plus le langage C/C++ est <strong>sensible à la casse</strong> c'est à dire qu'il différencie les minuscules des majuscules.</p>
+</div>
+<p><strong>Autres exemples :</strong></p>
+<ul>
+<li>Pour un booléen : <code>boolean etat_bp=true;</code> Initialisation d'un booléen appelé etat_bp à l'état haut.</li>
+<li>Pour un flottant : <code>float capteur=56.4;</code> Initialisation d'un flottant appelé capteur à la valeur 56.4.</li>
+<li>Pour un octet : <code>byte toto=23;</code> Initialisation d'un octet appelé toto à la valeur 23.</li>
+<li>Pour un caractère : <code>char mon_caractere='b';</code> ou <code>char mon_caractere=98;</code> Initialisation d'un caractère appelé mon_caractere à la valeur 98 code ASCII correspondant à 'b'.</li>
+</ul>
+<h2 id="3-la-declaration-de-constantes">3. La déclaration de constantes</h2>
+<p>Une constante à l'inverse d'une variable, ne varie pas lors de l'exécution du programme elle reste à la valeur à laquelle elle a été initialisée. Cela est très utile pour <strong>définir un numéro de pin ou une constante comme le nombre pi.</strong> Nous développons ci-dessous 2 méthodes pour déclarer une constante :</p>
+<h3 id="31-utilisation-de-const">3.1 Utilisation de <code>const</code></h3>
+<p>La définition d'une constante grâce au mot clé <code>const</code> est la méthode à privilégier, il suffit pour cela de choisir le bon type de variable pouvant contenir notre constante et utiliser l'instruction suivante :</p>
+<p><img alt="" src="../figures/Declaration_constante.svg" /></p>
+<p>Ici nous déclarons une constante appelée <code>ma_constante</code> et initialisée à la valeur 234.</p>
+<h3 id="32-utilisation-de-define">3.2 Utilisation de <code>#define</code></h3>
+<p>La définition d'une constante à l'aide du mot clé <code>#define</code> est <strong>à éviter</strong>, toutefois nous tenons à vous montrer son utilisation ci-dessous :</p>
+<p><img alt="" src="../figures/Declaration_constante_define.svg" /></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Le <code>#define</code> attribue dans l'exemple ci-dessus le mot <code>ma_constante</code> à <code>234</code> avant la compilation. C'est à dire que dans tout le code à chaque fois que le mot <code>ma_constante</code> sera utilisé il sera remplacé par <code>234</code>, je vous laisse voir les problèmes que cela peut poser dans le code...</p>
+</div>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      Dernière mise à jour:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 13, 2023</span>
+      
+        <br>
+        Créé:
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 13, 2023</span>
+      
+    
+  </small>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Retour en haut de la page
+          </button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Ce site ainsi que tout son contenu est mis à disposition selon les termes de la <a href="https://creativecommons.org/licenses/by/4.0/">Licence Creative Commons Attribution 4.0 International</a>.
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.instant", "navigation.tracking", "navigation.top", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.b4d07000.min.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+    
+  </body>
+</html>

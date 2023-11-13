@@ -1,0 +1,1086 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/logo.png">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.15">
+    
+    
+      
+        <title>Les fonctions Arduino - CIEL-IR-Rascol</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.26e3688c.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ecc896b0.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#les-fonctions-arduino" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href="../.." title="CIEL-IR-Rascol" class="md-header__button md-logo" aria-label="CIEL-IR-Rascol" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1.75 1h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 13H8.061l-2.574 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25v-8.5C0 1.784.784 1 1.75 1ZM1.5 2.75v8.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25H1.75a.25.25 0 0 0-.25.25Zm5.28 1.72a.75.75 0 0 1 0 1.06L5.31 7l1.47 1.47a.751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018l-2-2a.75.75 0 0 1 0-1.06l2-2a.75.75 0 0 1 1.06 0Zm2.44 0a.75.75 0 0 1 1.06 0l2 2a.75.75 0 0 1 0 1.06l-2 2a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042L10.69 7 9.22 5.53a.75.75 0 0 1 0-1.06Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CIEL-IR-Rascol
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Les fonctions Arduino
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+            
+              <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
+              </label>
+            
+          
+            
+            
+            
+            <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+            
+              <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
+              </label>
+            
+          
+        </form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Recherche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/ciel-ir-rascol/ciel-ir-rascol.github.io" title="Aller au dépôt" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ciel-ir-rascol.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Onglets" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../cpp/01-IntroCpp/introCpp/" class="md-tabs__link">
+        C++
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../" class="md-tabs__link">
+      Arduino
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="CIEL-IR-Rascol" class="md-nav__button md-logo" aria-label="CIEL-IR-Rascol" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1.75 1h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 13H8.061l-2.574 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25v-8.5C0 1.784.784 1 1.75 1ZM1.5 2.75v8.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25H1.75a.25.25 0 0 0-.25.25Zm5.28 1.72a.75.75 0 0 1 0 1.06L5.31 7l1.47 1.47a.751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018l-2-2a.75.75 0 0 1 0-1.06l2-2a.75.75 0 0 1 1.06 0Zm2.44 0a.75.75 0 0 1 1.06 0l2 2a.75.75 0 0 1 0 1.06l-2 2a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042L10.69 7 9.22 5.53a.75.75 0 0 1 0-1.06Z"/></svg>
+
+    </a>
+    CIEL-IR-Rascol
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/ciel-ir-rascol/ciel-ir-rascol.github.io" title="Aller au dépôt" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ciel-ir-rascol.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          C++
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          C++
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/01-IntroCpp/introCpp/" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/02-utilisationIDE/utilisationIDE/" class="md-nav__link">
+        Utilisation IDE
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/03-variablesConstantes/variablesConstantes/" class="md-nav__link">
+        Variables et Constantes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/04-tableauxVecteurs/tableauxVecteurs/" class="md-nav__link">
+        Tableaux et vecteurs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/05-structuresSelectives/structuresSelectives/" class="md-nav__link">
+        Structures sélectives
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/06-structuresIteratives/structuresIteratives/" class="md-nav__link">
+        Structures itératives
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/10-pointeurs/pointeurs/" class="md-nav__link">
+        Pointeurs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/11-classesObjets/classesObjets/" class="md-nav__link">
+        Classes et Objets
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/12-constructeursDestructeurs/constructeursDestructeurs/" class="md-nav__link">
+        Constructeurs et Destructeurs
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        Arduino
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#lire-et-ecrire-sur-les-pins-numeriques" class="md-nav__link">
+    Lire et écrire sur les pins numériques
+  </a>
+  
+    <nav class="md-nav" aria-label="Lire et écrire sur les pins numériques">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-parametrage-du-sens-dutilisation-avec-pinmode" class="md-nav__link">
+    1. Paramétrage du sens d'utilisation avec pinMode()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-utilisation-de-digitalwrite" class="md-nav__link">
+    2. Utilisation de digitalWrite()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-utilisation-de-digitalread" class="md-nav__link">
+    3. Utilisation de digitalRead()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#utiliser-le-can-et-le-pwm" class="md-nav__link">
+    Utiliser le CAN et le PWM
+  </a>
+  
+    <nav class="md-nav" aria-label="Utiliser le CAN et le PWM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-fonctionnement-du-can-et-utilisation-de-analogread" class="md-nav__link">
+    1. Fonctionnement du CAN et utilisation de analogRead()
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Fonctionnement du CAN et utilisation de analogRead()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-apport-theorique-sur-la-conversion-analogique-numerique" class="md-nav__link">
+    1.1 Apport théorique sur la conversion analogique numérique
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-utiliser-le-can-avec-arduino" class="md-nav__link">
+    1.2 Utiliser le CAN avec Arduino
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-fonctionnement-du-pwm-et-utilisation-de-analogwrite" class="md-nav__link">
+    2. Fonctionnement du PWM et utilisation de analogWrite()
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Fonctionnement du PWM et utilisation de analogWrite()">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-apport-theorique-sur-la-modulation-de-largeur-dimpulsion-mli" class="md-nav__link">
+    2.1 Apport théorique sur la modulation de largeur d'impulsion (MLI)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-utiliser-le-pwm-avec-arduino" class="md-nav__link">
+    2.2 Utiliser le PWM avec Arduino
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#le-port-serie" class="md-nav__link">
+    Le port série
+  </a>
+  
+    <nav class="md-nav" aria-label="Le port série">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-fonctionnement-de-luart" class="md-nav__link">
+    1. Fonctionnement de l'UART
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-parametrer-luart-avec-serialbegin" class="md-nav__link">
+    2. Paramétrer l'UART avec Serial.begin()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-ecrire-sur-le-port-serie-avec-serialprint-et-serialprintln" class="md-nav__link">
+    3. Ecrire sur le port série avec Serial.print() et Serial.println()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autres-fonctions-utiles" class="md-nav__link">
+    Autres fonctions utiles
+  </a>
+  
+    <nav class="md-nav" aria-label="Autres fonctions utiles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-faire-une-pause-delay" class="md-nav__link">
+    1. Faire une pause delay()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="les-fonctions-arduino">Les fonctions Arduino</h1>
+<h2 id="lire-et-ecrire-sur-les-pins-numeriques">Lire et écrire sur les pins numériques</h2>
+<p>Les cartes Arduino disposent toutes de pins numériques utilisables aussi bien en entrées qu'en sorties, nous montrons dans ce cours comment les paramétrer et s'en servir.</p>
+<p>Nous rappelons ci-dessous l'emplacement des pins numériques sur une carte Arduino UNO et MEGA :</p>
+<p><img alt="" src="../figures/PinsNumArduino.svg" /></p>
+<h3 id="1-parametrage-du-sens-dutilisation-avec-pinmode">1. Paramétrage du sens d'utilisation avec <code>pinMode()</code></h3>
+<p>Une carte Arduino peu importe le modèle, dispose de pins numériques et de pins analogiques, la première catégorie de pins contrairement à la seconde peut être configurée, aussi bien en entrée qu'en sortie :</p>
+<ul>
+<li>
+<p>Une pin numérique est utilisée en <strong>entrée</strong> <code>INPUT</code> pour recueillir une information extérieure (un "1" ou un "0") venant d'un capteur à sortie numérique, par exemple un bouton poussoir ou un capteur ILS (Reed).</p>
+</li>
+<li>
+<p>Une pin numérique est utilisée en <strong>sortie</strong> <code>OUTPUT</code> pour écrire un niveau logique (un "1" ou un "0") sur l'entrée d'un actionneur, par exemple une led, un relais ou un moteur.</p>
+</li>
+</ul>
+<p>La figure ci-dessous illustre ces deux possibilités, <strong>la pin 13 est configurée en sortie et la pin 2 en entrée</strong> :</p>
+<p><img alt="" src="../figures/SensInfoPinMode.svg" /></p>
+<p>La fonction <code>pinMode()</code> à coder dans la partie <code>void setup()</code> va nous permettre d'indiquer au micro-contrôleur le sens d'utilisation de chaque pin. Ci-dessous nous donnons la structure de cette fonction :</p>
+<p><img alt="" src="../figures/pinMode.svg" /></p>
+<p>Puis un code exemple de l'utilisation de cette fonction :</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">led</span><span class="o">=</span><span class="mi">13</span><span class="p">;</span><span class="w"> </span><span class="c1">//Déclaration d&#39;une constante de type entier appelée &quot;led&quot; et initialisée à 13</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">bp</span><span class="o">=</span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="c1">//Déclaration d&#39;une constante de type entier appelée &quot;bp&quot; et initialisée à 2</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="c1">//Initialisations</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="p">{</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="n">pinMode</span><span class="p">(</span><span class="n">led</span><span class="p">,</span><span class="n">OUTPUT</span><span class="p">);</span><span class="w"> </span><span class="c1">//Mise en sortie de la pin 13</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="n">pinMode</span><span class="p">(</span><span class="n">bp</span><span class="p">,</span><span class="n">INPUT</span><span class="p">);</span><span class="w"> </span><span class="c1">//Mise en entrée de la pin 2</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="p">}</span>
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Comme précisé ci-dessus <code>pinMode()</code> ne s'utilise qu'avec des <strong>pins numériques (digital)</strong>. De plus quand une pin a été définie en sortie, il est interdit de l'utiliser en entrée plus tard dans le programme et vice-versa.</p>
+</div>
+<h3 id="2-utilisation-de-digitalwrite">2. Utilisation de <code>digitalWrite()</code></h3>
+<p>La fonction Arduino <code>digitalWrite()</code> permet d'écrire une information numérique (un 0 ou un 1), sur une <strong>pin numérique</strong>. Les niveaux de tension correspondants sont les niveaux TTL :</p>
+<ul>
+<li>Un <strong>1</strong> logique vaut <strong>5V</strong></li>
+<li>Un <strong>0</strong> logique vaut <strong>GND</strong> (la masse)</li>
+</ul>
+<p>Ci-dessous nous donnons la structure de cette fonction :</p>
+<p><img alt="" src="../figures/digitalWrite.svg" /></p>
+<p>Le code ci-dessous allume la led 13 reliée à la pin 13 (led présente sur le circuit imprimé d'une carte Arduino UNO ou Mega) en se servant de <code>digitalWrite()</code> :</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">led</span><span class="o">=</span><span class="mi">13</span><span class="p">;</span><span class="w"> </span><span class="c1">//Déclaration d&#39;une constante de type int et de nom &quot;led&quot;, contenant 13 la pin où la led est reliée</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="c1">//Initialisations</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="p">{</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="n">pinMode</span><span class="p">(</span><span class="n">led</span><span class="p">,</span><span class="n">OUTPUT</span><span class="p">);</span><span class="w"> </span><span class="c1">//Mise en sortie de la pin numérique 13</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="p">}</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="c1">//Programme principal</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="p">{</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">    </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">led</span><span class="p">,</span><span class="n">HIGH</span><span class="p">);</span><span class="w"> </span><span class="c1">//Mise à 1 de la pin numérique 13 désignée par la constante led</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="p">}</span>
+</code></pre></div>
+<p>Même exemple mais en se servant d'une variable <code>etat</code> de type <code>boolean</code> contenant le niveau logique servant à l'allumage de la led :</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">led</span><span class="o">=</span><span class="mi">13</span><span class="p">;</span><span class="w"> </span><span class="c1">//Déclaration d&#39;une constante de type int et de nom &quot;led&quot;, contenant 13 la pin où la led est reliée</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">boolean</span><span class="w"> </span><span class="n">etat</span><span class="o">=</span><span class="nb">true</span><span class="p">;</span><span class="w"> </span><span class="c1">//Déclaration d&#39;une variable &quot;etat&quot; de type booléen initialisée à true (soit niveau logique 1)</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="c1">//Initialisation</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="p">{</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="n">pinMode</span><span class="p">(</span><span class="n">led</span><span class="p">,</span><span class="n">OUTPUT</span><span class="p">);</span><span class="w"> </span><span class="c1">//Mise en sortie de la pin numérique 13</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="p">}</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="c1">//Programme principal</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="p">{</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">    </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">led</span><span class="p">,</span><span class="n">etat</span><span class="p">);</span><span class="w"> </span><span class="c1">//Mise à 1 de la pin numérique 13 désignée par la constante led, l&#39;état de la pin est contenu dans la variable &quot;etat&quot;</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="p">}</span>
+</code></pre></div>
+<p>Emplacement de la led 13 sur les cartes Arduino UNO et MEGA :</p>
+<p><img alt="" src="../figures/Led13.svg" /></p>
+<h3 id="3-utilisation-de-digitalread">3. Utilisation de <code>digitalRead()</code></h3>
+<p>La fonction Arduino <code>digitalRead()</code> permet de lire une information numérique (un 0 ou un 1), sur une <strong>pin numérique</strong>. Les niveaux de tension correspondants sont également des niveaux TTL.</p>
+<p>Ci-dessous nous donnons la structure de cette fonction :</p>
+<p><img alt="" src="../figures/digitalRead.svg" /></p>
+<p>{% include important.html content="Ne pas oublier de déclarer une variable (ici nommée <em>Etat</em>) de type booléen <code>boolean</code> qui contiendra le niveau logique de la pin dont vous faites la lecture."%}</p>
+<p>Le code ci-dessous allume la led reliée à la pin 13 quand le bouton poussoir reliée à la pin 2 est appuyé :</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">led</span><span class="o">=</span><span class="mi">13</span><span class="p">;</span><span class="w"> </span><span class="c1">//Déclaration d&#39;une constante de type int et de nom &quot;led&quot;, contenant 13 la pin où la led est reliée</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">bp</span><span class="o">=</span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="c1">//Déclaration d&#39;une constante de type int et de nom &quot;bp&quot;, contenant 2 la pin où le bouton poussoir est relié</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">boolean</span><span class="w"> </span><span class="n">etat</span><span class="o">=</span><span class="nb">false</span><span class="p">;</span><span class="w"> </span><span class="c1">//Déclaration d&#39;une variable &quot;etat&quot; de type booléen initialisée à false (soit niveau logique 0)</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="c1">//Initialisation</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="p">{</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span><span class="n">pinMode</span><span class="p">(</span><span class="n">led</span><span class="p">,</span><span class="n">OUTPUT</span><span class="p">);</span><span class="w"> </span><span class="c1">//Mise en sortie de la pin numérique 13 pour la led</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="n">pinMode</span><span class="p">(</span><span class="n">bp</span><span class="p">,</span><span class="n">INPUT</span><span class="p">);</span><span class="w"> </span><span class="c1">//Mise en entrée de la pin numérique 2 pour le bouton poussoir</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="p">}</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="c1">//Programme principal</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="p">{</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">    </span><span class="n">etat</span><span class="o">=</span><span class="n">digitalRead</span><span class="p">(</span><span class="n">bp</span><span class="p">);</span><span class="w"> </span><span class="c1">//Lecture de la valeur de la pin 2 : bouton appuyé -&gt; etat=1   bouton relaché -&gt; etat=0</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">    </span><span class="n">digitalWrite</span><span class="p">(</span><span class="n">led</span><span class="p">,</span><span class="n">etat</span><span class="p">);</span><span class="w"> </span><span class="c1">//La led s&#39;allume ou s&#39;éteint suivant la valeur de &quot;etat&quot;</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="p">}</span>
+</code></pre></div>
+<p>Montage Arduino pour le code précédent :</p>
+<p><img alt="" src="../figures/bp_led_digitalRead.svg" /></p>
+<h2 id="utiliser-le-can-et-le-pwm">Utiliser le CAN et le PWM</h2>
+<p>L'environnement Arduino nous permet d'utiliser de manière simple deux fonctions essentielles d'un microcontrôleur le CAN et le PWM, nous donnons dans ce cours les explications quant à leurs paramétrages et leurs utilisations.</p>
+<h3 id="1-fonctionnement-du-can-et-utilisation-de-analogread">1. Fonctionnement du CAN et utilisation de <code>analogRead()</code></h3>
+<p>Nous rappelons ci-dessous l'emplacement des pins analogiques sur une carte Arduino UNO et MEGA :</p>
+<p><img alt="" src="../figures/PinsAnaArduino.svg" /></p>
+<h4 id="11-apport-theorique-sur-la-conversion-analogique-numerique">1.1 Apport théorique sur la conversion analogique numérique</h4>
+<p>Les cartes Arduino UNO et MEGA disposent toutes deux d'un Convertisseur Analogique Numérique de 10 bits intégré au micro-contrôleur, la figure ci-dessous vise à expliquer son fonctionnement :</p>
+<p><img alt="" src="../figures/FigureCAN.svg" /></p>
+<p>Une carte Arduino dispose de 6 entrées analogiques A0 à A5 pour le UNO, 16 de A0 à A15 pour le MEGA. L'entrée du convertisseur <span class="arithmatex">\(<span class="arithmatex">\(V_{a0}\)</span>\)</span> accepte une <strong>tension analogiques comprise entre 0 et 5V maximum, qui sera convertie en un nombre binaire N compris entre 0 et 1023</strong>.</p>
+<p>Nous déduisons alors la caractéristique entrée/sortie du CAN :</p>
+<p><img alt="" src="../figures/CaracCAN.svg" /></p>
+<p>Le quantum q est la plage de tension analogique qui permet à la sortie N de croître d'une marche quand celle-ci est dépassée :</p>
+<div class="arithmatex">\[
+q=\frac{V_{pe}}{2^{n}-1}=\frac{5}{2^{10}-1}=4.89mV
+\]</div>
+<p>À partir de la droite rouge nous obtenons l'équation du CAN :</p>
+<div class="arithmatex">\[
+(N)_{10}=\frac{1023}{5}\times V_{a0}
+\]</div>
+<p>On peut alors en déduire les valeurs <span class="arithmatex">\(N_{min}\)</span> et <span class="arithmatex">\(N_{max}\)</span> :</p>
+<div class="arithmatex">\[
+N_{min}=(0000000000)_{2}=(0)_{10}
+\]</div>
+<div class="arithmatex">\[
+N_{max}=2^{10}-1=(1111111111)_{2}=(1023)_{10}
+\]</div>
+<h4 id="12-utiliser-le-can-avec-arduino">1.2 Utiliser le CAN avec Arduino</h4>
+<p>L'utilisation du CAN avec Arduino est très simple, il suffit d'utiliser la fonction <code>analogRead()</code>, nous donnons ci-dessous sa structure :</p>
+<p><img alt="" src="../figures/analogRead.svg" /></p>
+<p>Le code suivant lit la valeur analogique sur la pin A0 et la convertit en <code>N</code> en utilisant la fonction <code>analogRead</code>. La variable <code>N</code> est ensuite convertie en Volts grâce à l'équation de la droite du CAN, pour obtenir finalement la variable <code>Va0</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">PinAna</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="c1">//Déclaration d&#39;une constante de type int et de nom &quot;PinAna&quot;, contenant 0 la pin analogique à lire</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kt">float</span><span class="w"> </span><span class="n">VaO</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="c1">//Déclaration d&#39;une variable de type float et de nom &quot;Vao&quot;, initialisée à 0</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="kt">int</span><span class="w"> </span><span class="n">N</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="c1">//Déclaration d&#39;une variable de type int et de nom &quot;N&quot;, initialisée à 0</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="c1">//Initialisation</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="p">{</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="c1">//Pas de pinMode pour analogRead()</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="p">}</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="c1">//Programme principal</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="p">{</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">    </span><span class="n">N</span><span class="o">=</span><span class="n">analogRead</span><span class="p">(</span><span class="n">PinAna</span><span class="p">);</span><span class="w"> </span><span class="c1">//Lecture de la valeur Va0 de la pin analogique 0 et conversion en N -&gt; 0&lt;N&lt;1023</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">    </span><span class="n">Vao</span><span class="o">=</span><span class="p">(</span><span class="mf">5.0</span><span class="o">/</span><span class="mf">1023.0</span><span class="p">)</span><span class="o">*</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="c1">//Conversion de N en Va0 grâce à l&#39;équation de la droite du CAN</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="p">}</span>
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Ne pas déclarer la pin analogique utilisée en entrée à l'aide de <code>pinMode()</code> Arduino le fait de manière automatique sachant que <code>analogRead()</code> ne s'utilise qu'avec des pins analogiques <strong>qui ne fonctionnent qu'en entrée</strong>.</p>
+</div>
+<h3 id="2-fonctionnement-du-pwm-et-utilisation-de-analogwrite">2. Fonctionnement du PWM et utilisation de <code>analogWrite()</code></h3>
+<h4 id="21-apport-theorique-sur-la-modulation-de-largeur-dimpulsion-mli">2.1 Apport théorique sur la modulation de largeur d'impulsion (MLI)</h4>
+<p>La MLI aussi appelée PWM (Pulse Width Modulation) en Anglais, est une technique permettant de faire varier la valeur moyenne de la tension d'un signal carré en changeant son rapport cyclique. Avant de rentrer dans les détails, revoyons un peu de vocabulaire technique.</p>
+<p><img alt="" src="../figures/CaracPWM.svg" /></p>
+<p>La figure ci-dessus montre un signal carré configuré de cette manière :</p>
+<ul>
+<li>
+<p>Période : T = 2ms</p>
+</li>
+<li>
+<p>Fréquence : f = <span class="arithmatex">\(\frac{1}{T}\)</span> = 500Hz</p>
+</li>
+<li>
+<p>Durée de l'état bas : <span class="arithmatex">\(T_b\)</span> = 1ms</p>
+</li>
+<li>
+<p>Durée de l'état haut : <span class="arithmatex">\(T_h\)</span> = 1ms</p>
+</li>
+<li>
+<p>Tension max : <span class="arithmatex">\(V_{max}\)</span> = <span class="arithmatex">\(\hat{V}\)</span> = 5V</p>
+</li>
+<li>
+<p>Tension min : <span class="arithmatex">\(V_{min}\)</span> = 0V</p>
+</li>
+</ul>
+<p>Nous montrons ici comment calculer sa valeur moyenne :</p>
+<p><img alt="" src="../figures/CaracPWM2.svg" /></p>
+<p>Formule de la valeur moyenne <span class="arithmatex">\(&lt;V&gt;\)</span> pour un signal carré et <strong>seulement pour un signal carré</strong> :</p>
+<div class="arithmatex">\[
+&lt;V&gt;=\frac{\Delta T}{T}
+\]</div>
+<p>Où <span class="arithmatex">\(\Delta T\)</span> est l'aire du carré bleu :</p>
+<div class="arithmatex">\[
+\Delta T =V_{max}\times T_h
+\]</div>
+<p>Nous obtenons alors :</p>
+<div class="arithmatex">\[
+&lt;V&gt;=\frac{V_{max}\times T_h}{T}
+\]</div>
+<p>En faisant l'application numérique à la figure ci-dessus :</p>
+<div class="arithmatex">\[
+&lt;V&gt;=\frac{5\times 1\times 10^{-3}}{2\times 10^{-3}}=2,5V
+\]</div>
+<p>On trace à présent la valeur moyenne <span class="arithmatex">\(&lt;V&gt;\)</span> en vert sur la figure :</p>
+<p><img alt="" src="../figures/CaracPWM3.svg" /></p>
+<p>Introduisons à présent la notion de <strong>rapport cyclique</strong> <span class="arithmatex">\(\alpha\)</span> qui est essentielle à la compréhension du fonctionnement d'un PWM :</p>
+<div class="arithmatex">\[
+\alpha=\frac{T_h}{T}
+\]</div>
+<p>Le rapport cyclique est un pourcentage : <span class="arithmatex">\(0\%&lt;\alpha&lt;100\%\)</span></p>
+<p><strong>La technique du PWM consiste à faire varier le rapport cyclique qui revient à faire varier la valeur moyenne du signal</strong>.
+Nous donnons ci-dessous des variations du rapport cyclique du signal carré précédent, <strong>tout en gardant la même fréquence</strong> f=500Hz :</p>
+<ul>
+<li>Pour <span class="arithmatex">\(\alpha=0\%\)</span></li>
+</ul>
+<p><img alt="" src="../figures/CaracAlpha0.svg" /></p>
+<ul>
+<li>Pour <span class="arithmatex">\(\alpha=10\%\)</span></li>
+</ul>
+<p><img alt="" src="../figures/CaracAlpha10.svg" /></p>
+<ul>
+<li>Pour <span class="arithmatex">\(\alpha=50\%\)</span></li>
+</ul>
+<p><img alt="" src="../figures/CaracAlpha50.svg" /></p>
+<ul>
+<li>Pour <span class="arithmatex">\(\alpha=90\%\)</span></li>
+</ul>
+<p><img alt="" src="../figures/CaracAlpha90.svg" /></p>
+<ul>
+<li>Pour <span class="arithmatex">\(\alpha=100\%\)</span></li>
+</ul>
+<p><img alt="" src="../figures/CaracAlpha100.svg" /></p>
+<p>Avec une fréquence élevée le composant branché en sortie du PWM <strong>ne verra que la valeur moyenne (la droite verte) du signal carré qui est continue</strong>.</p>
+<p>La technique du PWM peut être utilisée dans les cas suivants :</p>
+<ul>
+<li>Faire varier la vitesse d'un moteur à courant continu.</li>
+<li>Faire varier la luminosité d'une led.</li>
+</ul>
+<h4 id="22-utiliser-le-pwm-avec-arduino">2.2 Utiliser le PWM avec Arduino</h4>
+<p>En environnement Arduino, le PWM s'utilise avec la fonction <code>analogWrite()</code>, nous donnons ci-dessous sa structure :</p>
+<p><img alt="" src="../figures/analogWrite.svg" /></p>
+<p>Le choix du rapport cyclique avec la fonction <code>analogWrite()</code> se fait sur <strong>8 bits</strong> soit une valeur comprise entre 0 -&gt; 0% et 255 -&gt; 100%</p>
+<p><strong>Le PWM ne s'utilise pas avec n'importe quelle pin ! Il faut que la pin soit numérique et que ce soit une pin PWM</strong>, nous donnons le numéro des pins utilisables avec les cartes Arduino UNO et MEGA ainsi que la fréquence dans le tableau suivant :</p>
+<table>
+<thead>
+<tr>
+<th>Carte</th>
+<th>Pins PWM</th>
+<th>Fréquence du PWM</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UNO</td>
+<td>3,5,6,9,10,11</td>
+<td>490Hz et 980Hz sur pins 3 et 11</td>
+</tr>
+<tr>
+<td>MEGA</td>
+<td>2 à 13, 44 à 46</td>
+<td>490Hz et 980Hz sur pins 3 et 11</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Les pins numériques utilisables en PWM sont notées avec un <strong>~</strong> sur les cartes Arduino.</p>
+</div>
+<p>Nous donnons ci-dessous un code exemple de l'utilisation de cette fonction :</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">PinPWM</span><span class="o">=</span><span class="mi">3</span><span class="p">;</span><span class="w"> </span><span class="c1">//Déclaration d&#39;une constante de type int et de nom &quot;PinPWM&quot;, contenant 3 la pin numérique à utiliser pour le pwm</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="c1">//Initialisation</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="p">{</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="n">pinMode</span><span class="p">(</span><span class="n">PinPWM</span><span class="p">,</span><span class="n">OUTPUT</span><span class="p">);</span><span class="c1">//Mise en sortie de la pin numérique 3 pour utiliser le pwm</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="p">}</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="w"> </span><span class="c1">//Programme principal</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="p">{</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">    </span><span class="n">analogWrite</span><span class="p">(</span><span class="n">PinPWM</span><span class="p">,</span><span class="mi">127</span><span class="p">);</span><span class="w"> </span><span class="c1">//Création d&#39;un signal PWM sur la pin numérique 3 avec un rapport cyclique de 50%</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="p">}</span>
+</code></pre></div>
+<h2 id="le-port-serie">Le port série</h2>
+<p>Le port série Serial ou encore UART est un protocole de communication filaire, où les données à transmettre sont envoyées par paquets de 8 bits. Le port série est un des moyens qu'a une carte Arduino pour communiquer avec des éléments externes comme une autre carte ou un ordinateur.</p>
+<h3 id="1-fonctionnement-de-luart">1. Fonctionnement de l'UART</h3>
+<p>L'UART (Universal Asynchronous Receiver Transmitter) est un des périphériques du micro-contrôleur qui vient gérer la liaison série, ce protocole de communication nécessite 3 fils. La figure ci-dessous montre le câblage nécessaire pour une transmission série par l'UART entre 2 cartes Arduino UNO.</p>
+<p><img alt="" src="../figures/FigureSerial.svg" /></p>
+<p>Les données transitent par la liaison série sous forme de <strong>paquets de 8bits plus 1 bit de start et 1 bit de stop</strong>, nous donnons ci-dessous une trame, exemple d'émission par l'UART :</p>
+<p><img alt="" src="../figures/SignalUART.svg" /></p>
+<p>Décrivons les étapes de cet envoi qui débute à gauche du graphe et se termine à droite :</p>
+<ol>
+<li>
+<p>La liaison est au <strong>repos au niveau "1" à 5V</strong> dans un état que l'on apelle <strong>"Idle"</strong> en Anglais.</p>
+</li>
+<li>
+<p>La liaison détecte le début d'émission par le passage de l'état Idle à "0" =&gt; <strong>C'est le bit de start</strong>.</p>
+</li>
+<li>
+<p>Les <strong>8 bits du message</strong> sont envoyés en commençant par le bit de poids faible le <strong>LSB</strong> (Least Significant Bit) et se termine par le bit de poids fort le MSB (Most Significant Bit). Si le message que l'on souhaite envoyer est codé sur plus de 8 bits il sera découpé en paquet de 8 obligatoirement.</p>
+</li>
+<li>
+<p>La liaison termine son émission par un <strong>bit de stop à "1"</strong> avant de retourner à l'état Idle.</p>
+</li>
+</ol>
+<h3 id="2-parametrer-luart-avec-serialbegin">2. Paramétrer l'UART avec <code>Serial.begin()</code></h3>
+<p>La fréquence d'émission soit le nombre de <strong>Bauds</strong> (bits par seconde) est définie avec la fonction Arduino <code>Serial.begin()</code>, notons que cette durée ne varie pas dans la suite du code une fois qu'on en a fait le paramétrage dans le <code>void setup()</code>. Nous donnons ci-dessous la structure de cette fonction :</p>
+<p><img alt="" src="../figures/SerialBegin.svg" /></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Le protocole de transmission série étant asynchrone l'horloge qui permet de synchroniser les signaux entre l'émetteur et le récepteur n'est pas transmise. Il faut donc que la <strong>fréquence d'émission soit la même sur l'émetteur et sur le récepteur.</strong></p>
+</div>
+<p>Nous donnons ci-dessous un code exemple Arduino pour le paramétrage d'une liaison série à 9600 Bauds :</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="c1">//Initialisations</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="p">{</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">9600</span><span class="p">);</span><span class="c1">//Initialisation du port série avec une fréquence d&#39;émission de 9600 Bauds</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="3-ecrire-sur-le-port-serie-avec-serialprint-et-serialprintln">3. Ecrire sur le port série avec <code>Serial.print()</code> et <code>Serial.println()</code></h3>
+<p>Deux fonctions permettent d'écrire simplement des messages sur le port série d'une carte Arduino :</p>
+<ul>
+<li><code>Serial.print()</code> : Permet d'écrire de multiples choses sur le serial sans se soucier si le contenu de notre message est d'une taille supérieure à 8 bits. <strong>La fonction fait elle même le partage en paquets de 8 bits</strong>. Nous donnons ci-dessous la structure de cette fonction :</li>
+</ul>
+<p><img alt="" src="../figures/SerialPrint.svg" /></p>
+<ul>
+<li><code>Serial.println()</code> : Fait la même chose que la fonction précédente mais provoque un renvoi à la ligne <strong>en fin d'émission</strong>. Nous donnons ci-dessous la structure de cette fonction :</li>
+</ul>
+<p><img alt="" src="../figures/SerialPrintln.svg" /></p>
+<p>Nous donnons ci-dessous un code exemple complet comprenant l'initialisation du serial et l'utilisation des deux fonctions précédentes :</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">Tutu</span><span class="o">=</span><span class="mi">2345</span><span class="p">;</span><span class="w"> </span><span class="c1">//Déclaration d&#39;un entier initialisé à 2345</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="kt">float</span><span class="w"> </span><span class="n">Tomaas</span><span class="o">=</span><span class="mf">3.14</span><span class="p">;</span><span class="c1">//Déclaration d&#39;un flottant initialisé à 3.14</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="c1">//Initialisations</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="p">{</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">9600</span><span class="p">);</span><span class="c1">//Initialisation du port série avec une fréquence d&#39;émission de 9600 Bauds</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="p">}</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="p">()</span><span class="c1">//Programme principal</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="p">{</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;Ma variable Tutu contient : &quot;</span><span class="p">);</span><span class="c1">//Ecriture d&#39;une chaine de caractères sur le serial</span>
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">Tutu</span><span class="p">);</span><span class="c1">//Ecriture du contenu de Tutu et retour à la ligne</span>
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;Ma variable Tomaas contient : &quot;</span><span class="p">);</span><span class="c1">//Ecriture d&#39;une chaine de caractères sur le serial</span>
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">  </span><span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">Tomaas</span><span class="p">);</span><span class="c1">//Ecriture du contenu de Tomaas et retour à la ligne</span>
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="p">}</span>
+</code></pre></div>
+<p>Une fonction sur l'Arduino IDE appelée <strong>Moniteur série</strong> permet d'afficher ce que notre carte Arduino écrit sur le serial grâce à la liaison usb. (Les pins Rx et Tx du port série sont retransmises sur le port USB). Observons ce que notre code produit sur le moniteur série :</p>
+<p><img alt="" src="../figures/OutputSerialMonitor.svg" /></p>
+<p>Le code précédent affiche de manière infinie (Nous rappelons que le <code>void loop()</code> est équivalent à un <code>while(1)</code>) la première chaîne de caractère, le contenu de la variable Tutu, retourne à la ligne puis affiche la seconde chaîne de caractères et affiche la variable Tomaas pour à nouveau retourner à la ligne et recommencer...</p>
+<h2 id="autres-fonctions-utiles">Autres fonctions utiles</h2>
+<p>Cette partie répertorie toutes les autres fonctions que vous pourriez être amené à utiliser dans vos codes Arduino.</p>
+<h3 id="1-faire-une-pause-delay">1. Faire une pause <code>delay()</code></h3>
+<p>La fonction delay permet de mettre en pause l'exécution du programme durant le temps donné <strong>en milli-secondes.</strong> Nous donnons ci-dessous la structure de ce programme :</p>
+<p><img alt="" src="../figures/delay.svg" /></p>
+<p>Nous donnons ci-dessous un code exemple de l'utilisation de cette fonction :</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">loop</span><span class="w"> </span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="p">{</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">  </span><span class="c1">//Bloc d&#39;instructions</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">  </span><span class="n">delay</span><span class="p">(</span><span class="mi">5000</span><span class="p">);</span><span class="c1">//Pause de 5 secondes</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">  </span><span class="c1">//Bloc d&#39;instructions  </span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="p">}</span>
+</code></pre></div>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      Dernière mise à jour:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 13, 2023</span>
+      
+        <br>
+        Créé:
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 13, 2023</span>
+      
+    
+  </small>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Retour en haut de la page
+          </button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Ce site ainsi que tout son contenu est mis à disposition selon les termes de la <a href="https://creativecommons.org/licenses/by/4.0/">Licence Creative Commons Attribution 4.0 International</a>.
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.instant", "navigation.tracking", "navigation.top", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.b4d07000.min.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+    
+  </body>
+</html>
