@@ -1,0 +1,1344 @@
+
+<!doctype html>
+<html lang="fr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/logo.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.9">
+    
+    
+      
+        <title>Le Raspberry Pi - CIEL-IR-Rascol</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.f2e4d321.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#le-raspberry-pi" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href="../.." title="CIEL-IR-Rascol" class="md-header__button md-logo" aria-label="CIEL-IR-Rascol" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1.75 1h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 13H8.061l-2.574 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25v-8.5C0 1.784.784 1 1.75 1ZM1.5 2.75v8.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25H1.75a.25.25 0 0 0-.25.25Zm5.28 1.72a.75.75 0 0 1 0 1.06L5.31 7l1.47 1.47a.751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018l-2-2a.75.75 0 0 1 0-1.06l2-2a.75.75 0 0 1 1.06 0Zm2.44 0a.75.75 0 0 1 1.06 0l2 2a.75.75 0 0 1 0 1.06l-2 2a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042L10.69 7 9.22 5.53a.75.75 0 0 1 0-1.06Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CIEL-IR-Rascol
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Le Raspberry Pi
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7M9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V17a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2.26C6.19 13.47 5 11.38 5 9a7 7 0 0 1 7-7M9 21v-1h6v1a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1m3-17a5 5 0 0 0-5 5c0 2.05 1.23 3.81 3 4.58V16h4v-2.42c1.77-.77 3-2.53 3-4.58a5 5 0 0 0-5-5Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Recherche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/ciel-ir-rascol/ciel-ir-rascol.github.io" title="Aller au dépôt" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ciel-ir-rascol.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Onglets" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../cpp/01-IntroCpp/introCpp/" class="md-tabs__link">
+          
+  
+  C++
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../01-Intro/" class="md-tabs__link">
+          
+  
+  Linux
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../arduino/" class="md-tabs__link">
+        
+  
+    
+  
+  Arduino
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="CIEL-IR-Rascol" class="md-nav__button md-logo" aria-label="CIEL-IR-Rascol" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1.75 1h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 13H8.061l-2.574 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25v-8.5C0 1.784.784 1 1.75 1ZM1.5 2.75v8.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25H1.75a.25.25 0 0 0-.25.25Zm5.28 1.72a.75.75 0 0 1 0 1.06L5.31 7l1.47 1.47a.751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018l-2-2a.75.75 0 0 1 0-1.06l2-2a.75.75 0 0 1 1.06 0Zm2.44 0a.75.75 0 0 1 1.06 0l2 2a.75.75 0 0 1 0 1.06l-2 2a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042L10.69 7 9.22 5.53a.75.75 0 0 1 0-1.06Z"/></svg>
+
+    </a>
+    CIEL-IR-Rascol
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/ciel-ir-rascol/ciel-ir-rascol.github.io" title="Aller au dépôt" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ciel-ir-rascol.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    C++
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            C++
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/01-IntroCpp/introCpp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/02-utilisationIDE/utilisationIDE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Utilisation IDE
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/03-variablesConstantes/variablesConstantes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Variables et Constantes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/04-tableauxVecteurs/tableauxVecteurs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tableaux et vecteurs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/05-structuresSelectives/structuresSelectives/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Structures sélectives
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/06-structuresIteratives/structuresIteratives/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Structures itératives
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/10-pointeurs/pointeurs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Pointeurs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/11-classesObjets/classesObjets/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Classes et Objets
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cpp/12-constructeursDestructeurs/constructeursDestructeurs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Constructeurs et Destructeurs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Linux
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Linux
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Cours
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Cours
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-Intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-Commandes_bash/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Commandes Bash
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-Permissions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Permissions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Activités
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Activités
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ACT1-Util_term/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ACT01 Terminal
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ACT2-Linux_reseau/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ACT02 Réseau
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ACT3-gerer_permissions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ACT03 Permissions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../arduino/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Arduino
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Introduction
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-historique-du-raspberry-pi" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Historique du Raspberry Pi
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Historique du Raspberry Pi">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-genese-de-lidee" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 Genèse de l'idée
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-chronologie-rapide" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 Chronologie rapide
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-composition-du-raspberry-pi" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Composition du Raspberry Pi
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Composition du Raspberry Pi">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-le-soc" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 Le SOC
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-les-entrees-sorties" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 Les entrées sorties
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-le-gpio" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 Le GPIO
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-utilisation-du-raspberry-pi" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Utilisation du Raspberry Pi
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Utilisation du Raspberry Pi">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-os-utilisables-sur-le-raspberry-pi" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 OS utilisables sur le raspberry Pi
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-installation-de-raspbian" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 Installation de Raspbian
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-premier-demarrage" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.3 Premier démarrage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-modification-de-la-disposition-clavier" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.4 Modification de la disposition clavier
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="le-raspberry-pi">Le Raspberry Pi</h1>
+<h2 id="1-introduction">1. Introduction</h2>
+<p>Le Raspberry Pi est un micro-ordinateur à faible coût (environ 40€), fonction-nant sous Linux, et pas plus grand qu’une carte de crédit. Il est entre autre capable d’afficher des vidéos en HD (1080p), de servir de poste de bureau-tique/internet, de console de jeu et surtout d’outil d’initiation à l’informatique. Grâce à ses ports d’entrées/sorties matériels, il peut recevoir des informations de capteurs externes, piloter des actionneurs, transmettre des signaux... Ses champs d’applications sont infinis.<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></p>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/uXUjwk2-qx4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<h2 id="2-historique-du-raspberry-pi">2. Historique du Raspberry Pi</h2>
+<h3 id="21-genese-de-lidee">2.1 Genèse de l'idée</h3>
+<p><a data-flickr-embed="true"  href="https://www.flickr.com/photos/techcrunch/14972087073" title="518392245AG119_TechCrunch_D"><img src="https://farm4.staticflickr.com/3936/14972087073_36bd902259.jpg" width="500" height="333" alt="518392245AG119_TechCrunch_D"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script></p>
+<p><sup>Eben Upton, l'un des inventeurs du Raspberry Pi</sup></p>
+<p>Voici un extrait traduit en Français de l’explication donnée sur le site officiel de la fondation Raspberry Pi quant à la genèse de cette idée :</p>
+<p><em>« L'idée d'un ordinateur petit et bon marché pour l'éducation est venue en 2006, alors qu'Eben Upton et ses collègues du laboratoire d'informatique de l'université de Cambridge, parmi lesquels Rob Mullins, Jack Lang et Alan Mycroft, se préoccupèrent de la baisse régulière, année après année, du nombre et du niveau de compétence des candidats souhaitant suivre des études d'informatique. De la situation des années 1990 où les candidats qui se présentaient étaient des programmeurs amateurs, le paysage des années 2000 diffère grandement : un candidat typique pourra n'avoir fait qu'un peu de design web. »</em><sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></p>
+<p>Le constat en 2006 était le suivant :</p>
+<ul>
+<li>Une baisse de niveau en informatique des candidats à l’université</li>
+<li>Une formation scolaire inadaptée à la programmation</li>
+<li>Des systèmes d’exploitation classiques inadaptés à l’expérimentation</li>
+<li>Des ordinateurs chers pour faire de la programmation expérimentale</li>
+</ul>
+<p>La solution retenue fut alors de créer un micro ordinateur open source et abordable : <strong>Le Raspberry Pi</strong></p>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/UCt6d0SCxO4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<h3 id="22-chronologie-rapide">2.2 Chronologie rapide</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Date</th>
+<th style="text-align: left;">Événement</th>
+<th style="text-align: left;">Caractéristiques</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Août 2011</td>
+<td style="text-align: left;">Impression des 1eres cartes Alpha</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Février 2012</td>
+<td style="text-align: left;">Création de la distribution Raspbian</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Avril - Juin 2012</td>
+<td style="text-align: left;">Sortie du Raspberry pi 1 modèle B</td>
+<td style="text-align: left;">ARM 32bits 700Mhz - 256Mo</td>
+</tr>
+<tr>
+<td style="text-align: left;">Septembre 2012</td>
+<td style="text-align: left;">Début de la fabrication en Angleterre</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;">Février 2013</td>
+<td style="text-align: left;">Le modèle A est disponible</td>
+<td style="text-align: left;">ARM 32bits 700Mhz - 256Mo</td>
+</tr>
+<tr>
+<td style="text-align: left;">Mai 2013</td>
+<td style="text-align: left;">Création d'un shield caméra</td>
+<td style="text-align: left;">5MP - 1080p</td>
+</tr>
+<tr>
+<td style="text-align: left;">Juillet 2014</td>
+<td style="text-align: left;">Sortie du modèle B+</td>
+<td style="text-align: left;">ARM 32bits 700Mhz - 512Mo</td>
+</tr>
+<tr>
+<td style="text-align: left;">Mai 2013</td>
+<td style="text-align: left;">Sortie du modèle 2B</td>
+<td style="text-align: left;">ARM 32bits 900Mhz QuadCore - 1Go</td>
+</tr>
+<tr>
+<td style="text-align: left;">Février 2016</td>
+<td style="text-align: left;">Sortie du modèle 3B</td>
+<td style="text-align: left;">ARM 64bits 1.2Ghz QuadCore - 1Go</td>
+</tr>
+<tr>
+<td style="text-align: left;">Février 2016</td>
+<td style="text-align: left;">Sortie du modèle 0</td>
+<td style="text-align: left;">ARM 32bits 1Ghz - 512Mo</td>
+</tr>
+<tr>
+<td style="text-align: left;">Février 2017</td>
+<td style="text-align: left;">Sortie du modèle 0W</td>
+<td style="text-align: left;">ARM 32bits 1Ghz - 512Mo</td>
+</tr>
+<tr>
+<td style="text-align: left;">Mars 2018</td>
+<td style="text-align: left;">Sortie du modèle 3B+</td>
+<td style="text-align: left;">ARM 64bits 1.4Ghz QuadCore - 1Go</td>
+</tr>
+<tr>
+<td style="text-align: left;">Novembre 2018</td>
+<td style="text-align: left;">Sortie du modèle 3A+</td>
+<td style="text-align: left;">ARM 64bits 1.4Ghz QuadCore - 512Mo</td>
+</tr>
+</tbody>
+</table>
+<p>Photo de famille, l'originale est à consulter sur le site <a href="https://raspi.tv/2018/raspberry-pi-3b-plus-family-photo-update-march-2018">raspi.tv</a></p>
+<p><img src="https://raspi.tv/wp-content/uploads/2018/03/Pi-Family-Photo-Master-Mar2018-1500-1.jpg" width="100%"></p>
+<h2 id="3-composition-du-raspberry-pi">3. Composition du Raspberry Pi</h2>
+<p>Le Raspberry pi 3B est l'avant dernier modèle à se jour, et c’est celui-ci que nous allons utiliser en classe.</p>
+<p><img alt="" src="https://farm2.staticflickr.com/1450/25372995785_fbc89b0196_o.png" /></p>
+<h3 id="31-le-soc">3.1 Le SOC</h3>
+<p>Le SOC (System On a Chip) est une puce n’intégrant pas seulement un microprocesseur mais aussi d’autres périphériques nécessaires au fonctionnement d’un ordinateur, tout cela dans un seul boîtier :</p>
+<ul>
+<li>Un microprocesseur</li>
+<li>Un processeur graphique (GPU)</li>
+<li>De la RAM</li>
+<li>Tous les circuits annexes mis en oeuvre dans un système informatique.</li>
+</ul>
+<h3 id="32-les-entrees-sorties">3.2 Les entrées sorties</h3>
+<p>Le Raspberry Pi dispose de plusieurs connecteurs sur son boîtier, pour le modèle 3B nous avons :</p>
+<ul>
+<li>Quatre connecteurs USB 2.0</li>
+<li>Une connecteur d’alimentation type micro-USB</li>
+<li>Un port HDMI</li>
+<li>Un port Ethernet 100 Mbit/s</li>
+<li>Une entrée/sortie audio</li>
+<li>Un connecteur bus CSI (pour la connexion de la caméra)</li>
+<li>Un connecteur bus DSI (pour la connexion d’un écran)</li>
+<li>Un GPIO</li>
+</ul>
+<h3 id="33-le-gpio">3.3 Le GPIO</h3>
+<p>Le GPIO pour General Purpose Input/Output est un interface Entrée/Sortie numérique entièrement programmable. Le Raspberry Pi ne disposant malheureusement pas de CAN ou CNA il faut interfacer une autre carte (Arduino) ou un circuit pour traiter des données analogiques.</p>
+<p>Ci-dessous la figure montre le brochage du GPIO pour un Raspberry Pi 3B :</p>
+<p><img alt="" src="https://pinout.xyz/resources/raspberry-pi-pinout.png" />
+<sup>Raspberry PI GPIO from <a href="https://pinout.xyz/">pinout.xyz</a></sup></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Le Raspberry Pi et ce pour n’importe quel modèle, <strong>ne supporte pas une tension d’entrée supérieure à 3.3V sur son GPIO</strong>, les niveaux logiques sont donc :</p>
+<ul>
+<li>« 1 » = 3.3V</li>
+<li>« 0 » = 0V</li>
+</ul>
+</div>
+<h2 id="4-utilisation-du-raspberry-pi">4. Utilisation du Raspberry Pi</h2>
+<h3 id="41-os-utilisables-sur-le-raspberry-pi">4.1 OS utilisables sur le raspberry Pi</h3>
+<p>Le Raspberry Pi  à l'origine ne fonctionnait que sur un système d’exploitation GNU Linux, appelé Raspbian, grâce au succès et à l'amélioration de la carte d'autres fabricants ont adapté leurs systèmes pour qu'il puisse fonctionner sur la framboise :</p>
+<ul>
+<li><a href="https://www.raspberrypi.org/downloads/raspbian/">Raspbian</a> : Distribution linux d'origine, basée sur Debian et activement maintenue par la Raspberry Foundation.</li>
+<li><a href="https://libreelec.tv/">LibreELEC</a> : Distribution linux spécifique à la gestion de contenu multimédia (Home-Cinéma), utilise le système <a href="https://kodi.tv/">Kodi</a></li>
+<li><a href="https://developer.ubuntu.com/core/get-started">Ubuntu Core</a> : Célèbre distribution Linux, ici adaptée pour l'IoT.</li>
+<li><a href="https://docs.microsoft.com/fr-fr/windows/iot-core/downloads">Windows 10 IoT Core</a> : Le leader mondial a lui succombé à la framboise et propose son dernier une version de son dernier OS adapté à l'IoT.</li>
+</ul>
+<h3 id="42-installation-de-raspbian">4.2 Installation de Raspbian</h3>
+<p>Pour toutes les activités au lycée Rascol nous utiliserons l'os Raspbian, le téléchargement de la dernière version se fera sur le site <a href="https://www.raspberrypi.org/downloads/raspbian/">raspberrypi.org</a></p>
+<p><img alt="" src="\tsti2d\linux\figures\raspbian_choix.PNG" /></p>
+<p>Suivant l'utilisation désirée nous choisirons la version <em>lite</em> ou <em>desktop</em>, bien souvent la version <em>lite</em> qui <strong>ne comporte pas d'interface graphique ou "gui"</strong> est suffisante. En effet, le Raspberry Pi partage son processeur et sa mémoire pour la partie graphique, en désactivant le gui nous gagnons donc en rapidité.</p>
+<ol>
+<li>Téléchargez le <strong>.zip</strong> désirée et ne le décompressez pas.</li>
+<li>Téléchargez le logiciel <a href="https://www.balena.io/etcher/">Etcher</a> qui permet de graver de manière fiable des images .iso sur des supports externes (SD,USB)</li>
+<li>Insérez une carte micro SD de minimum 8Go, une vitesse de 10 est conseillée. Le formatage préalable n'est pas nécessaire Etcher s'occupe de tout !</li>
+<li>Dans Etcher choisissez votre fichier .zip et votre carte SD et appuyez sur <strong>Flash!</strong></li>
+</ol>
+<p><img alt="" src="\tsti2d\linux\figures\etcher.PNG" /></p>
+<h3 id="43-premier-demarrage">4.3 Premier démarrage</h3>
+<p>⚠️<strong>La mise sous tension du Raspberry Pi se fait en dernier</strong>⚠️, il faut au préalable connecter tous les périphériques : clavier, souris, écran, cordon réseau, <strong>insérer la carte SD</strong> et en dernier l'alimentation. Le Raspberry Pi n'ayant pas de bouton ON/OFF c'est la connexion du câble d'alimentation qui le fera automatique démarrer.</p>
+<p>De la même manière l'arrêt se fera en cliquant sur <em>Menu</em> &gt; <em>Shutdown</em> avec le gui ou en tapant la commande <code>sudo poweroff</code> en mode console.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>Surtout ne jamais retirer la carte SD du Raspberry Pi en cours d'exécution, sous peine de l'endommager définitivement</strong></p>
+</div>
+<p>Une fois la framboise démarrée un nom d'utilisateur et un mot de passe vous seront peut-être demandés :</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>login : pi
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>pwd : raspberry
+</span></code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Quand vous tapez un mot de passe dans une console Linux rien ne s'affiche à l'écran. C'est normal ! C'est une sécurité supplémentaire, le mot de passe que vous tapez sera bien pris en compte.</p>
+</div>
+<h3 id="44-modification-de-la-disposition-clavier">4.4 Modification de la disposition clavier</h3>
+<p>Lors du premier démarrage avec la distribution Raspbian light, la disposition du clavier est par défaut en Anglais (qwerty), nous donnons ci-dessous les étapes pour la changer :</p>
+<ul>
+<li>Après vous êtres loggé <code>login : pi</code> <code>passwd : raspberry</code>, ouvrez le menu de configuration avec <code>sudo raspi-config</code></li>
+<li>Allez dans <code>4 Localisation Options</code> --&gt; <code>Change Keyboard Layout</code> --&gt; <code>Generic 105-key</code> --&gt; <code>French</code></li>
+</ul>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>D'après <em>Raspberry Pi</em> de Christian Tavernier, 2013&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>Texte de la Raspberry Pi foundation, original en Anglais&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Dernière mise à jour">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 5, 2024</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Créé">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">September 5, 2024</span>
+  </span>
+
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Retour en haut de la page
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Ce site ainsi que tout son contenu est mis à disposition selon les termes de la <a href="https://creativecommons.org/licenses/by/4.0/">Licence Creative Commons Attribution 4.0 International</a>.
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.instant", "navigation.tracking", "navigation.top", "navigation.sections", "content.code.annotate", "content.code.copy"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.8fd75fb4.min.js"></script>
+      
+        <script src="../../javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
