@@ -51,7 +51,7 @@ La commande `ip a` permet de visualiser la configuration réseau de l'ordinateur
 
     2. Utilisez la même commande pour obtenir votre adresse IP
 
-A présent nous souhaitons modifier l'adresse IP de l'interface réseau utilisé, pour ce faire nous utiliserons la commande `ifconfig eth0 nouvelle-adresse`, **la nouvelle adresse devra correspondre au numéro de l'ordinateur**.
+A présent nous souhaitons modifier l'adresse IP de l'interface réseau utilisé, **la nouvelle adresse devra correspondre au numéro de l'ordinateur**.
 
 Dans la section CIEL-IR l'adressage IP est configuré de cette manière :
 
