@@ -12,6 +12,7 @@ theme:
     - navigation.instant
     - navigation.tracking
     - navigation.top
+    - navigation.sections
     - content.code.annotate
     - content.code.copy
   name: material
@@ -79,5 +80,15 @@ nav:
     - Pointeurs : cpp/10-pointeurs/pointeurs.md
     - Classes et Objets : cpp/11-classesObjets/classesObjets.md
     - Constructeurs et Destructeurs : cpp/12-constructeursDestructeurs/constructeursDestructeurs.md
+  - Linux :
+    - Cours :
+      - Introduction : linux/01-Intro.md
+      # - Raspberry Pi : linux/02-Raspberry_pi.md
+      - Commandes Bash : linux/03-Commandes_bash.md
+      - Permissions : linux/04-Permissions.md
+      # - Scripts Bash : linux/05-Scripts_bash.md
+    - Activités :
+      - ACT01 Terminal : linux/ACT1-Util_term.md
+      - ACT02 Réseau : linux/ACT2-Linux_reseau.md
+      - ACT03 Permissions : linux/ACT3-gerer_permissions.md    
   - Arduino : arduino/index.md
-  - NSI : nsi/index.md
