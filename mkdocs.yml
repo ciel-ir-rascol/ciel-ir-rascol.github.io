@@ -87,9 +87,10 @@ nav:
       # - Raspberry Pi : linux/02-Raspberry_pi.md
       - Commandes Bash : linux/03-Commandes_bash.md
       - Permissions : linux/04-Permissions.md
-      # - Scripts Bash : linux/05-Scripts_bash.md
+      - Scripts Bash : linux/05-Scripts_bash.md
     - Activités :
       - ACT01 Terminal : linux/ACT1-Util_term.md
       - ACT02 Réseau : linux/ACT2-Linux_reseau.md
-      - ACT03 Permissions : linux/ACT3-gerer_permissions.md    
+      - ACT03 Permissions : linux/ACT3-gerer_permissions.md 
+      - ACT04 Scripts Bash : linux/ACT4-Scripts_bash.md   
   - Arduino : arduino/index.md
