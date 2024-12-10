@@ -77,6 +77,7 @@ nav:
     - Tableaux et vecteurs : cpp/04-tableauxVecteurs/tableauxVecteurs.md
     - Structures sélectives : cpp/05-structuresSelectives/structuresSelectives.md
     - Structures itératives : cpp/06-structuresIteratives/structuresIteratives.md
+    - Fonctions : cpp/07-fonctions/fonctions.md
     - Pointeurs : cpp/10-pointeurs/pointeurs.md
     - Classes et Objets : cpp/11-classesObjets/classesObjets.md
     - Constructeurs et Destructeurs : cpp/12-constructeursDestructeurs/constructeursDestructeurs.md
@@ -93,4 +94,5 @@ nav:
       - ACT02 Réseau : linux/ACT2-Linux_reseau.md
       - ACT03 Permissions : linux/ACT3-gerer_permissions.md 
       - ACT04 Scripts Bash : linux/ACT4-Scripts_bash.md   
+      - EVAL Linux : linux/EVAL-Linux.md   
   - Arduino : arduino/index.md
