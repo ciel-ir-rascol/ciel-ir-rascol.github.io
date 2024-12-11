@@ -323,7 +323,36 @@ int main() {
 }
 ```
 
+___
+<!-- _class: lead -->
+# Surcharge de fonctions
+# *Overloaded Functions*
 
+___
+
+# Overloaded Functions
+- On peut avoir des fonctions qui peuvent avoir différents paramètres et toujours le même nom.
+- Un type de polymorphisme :
+  - Le même nom de fonction peut être utilisé avec des différents types de données pour exécuter quelque chose de similaire.
+- Le compilateur doit être capable de faire la distinction entre les fonctions à utiliser, suivant la liste des paramètres et les arguments fournis.
+
+___
+
+# Exemple : Overloaded Functions
+
+```cpp
+int add_numbers(int a, int b){ // Fonction 1
+    return a+b;
+}
+double add_numbers(double a, double b){ // Fonction 2
+    return a+b;
+} 
+
+int main(){
+    cout << add_numbers(10,20) << endl; // Appel de la fonction 1 car ENTIERS
+    cout << add_numbers(10.0,20.0) << endl; // Appel de la fonction 2 car DÉCIMAUX
+}
+```
 
 
 
