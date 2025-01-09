@@ -78,7 +78,7 @@ nav:
     - Structures sélectives : cpp/05-structuresSelectives/structuresSelectives.md
     - Structures itératives : cpp/06-structuresIteratives/structuresIteratives.md
     - Fonctions : cpp/07-fonctions/fonctions.md
-    - Pointeurs : cpp/10-pointeurs/pointeurs.md
+    - Pointeurs : cpp/08-pointeurs/pointeurs.md
     - Classes et Objets : cpp/11-classesObjets/classesObjets.md
     - Constructeurs et Destructeurs : cpp/12-constructeursDestructeurs/constructeursDestructeurs.md
     - GitHub : cpp/00-gitHub/gitHub.md
