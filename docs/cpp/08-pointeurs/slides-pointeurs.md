@@ -421,7 +421,7 @@ int main(){
 int *creerTableau(int nbCases, int valeurInit){
   int *ptrTableau {nullptr};
 
-  nouveauStockage = new int[nbCases]; // Réservation de nbCases dans le heap
+  ptrTableau = new int[nbCases]; // Réservation de nbCases dans le heap
   for(int i=0; i<nbCases; i++)
     *(ptrTableau + i) = valeurInit;
 
